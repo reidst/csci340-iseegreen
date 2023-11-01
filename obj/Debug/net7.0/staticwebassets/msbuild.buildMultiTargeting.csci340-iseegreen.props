@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\build\csci340-iseegreen.props" />
+  <Import Project="../build/csci340-iseegreen.props" />
 </Project>
