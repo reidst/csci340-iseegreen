@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "csci340-iseegreen/1.0.0": {
+        "runtime": {
+          "csci340-iseegreen.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "csci340-iseegreen/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
