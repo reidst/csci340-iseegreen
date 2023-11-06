@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\repos\\csci340-iseegreen\\csci340-iseegreen.csproj": {}
+    "/Users/katejackson/Documents/csci340-iseegreen/csci340-iseegreen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\repos\\csci340-iseegreen\\csci340-iseegreen.csproj": {
+    "/Users/katejackson/Documents/csci340-iseegreen/csci340-iseegreen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\repos\\csci340-iseegreen\\csci340-iseegreen.csproj",
+        "projectUniqueName": "/Users/katejackson/Documents/csci340-iseegreen/csci340-iseegreen.csproj",
         "projectName": "csci340-iseegreen",
-        "projectPath": "C:\\Users\\user\\repos\\csci340-iseegreen\\csci340-iseegreen.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\repos\\csci340-iseegreen\\obj\\",
+        "projectPath": "/Users/katejackson/Documents/csci340-iseegreen/csci340-iseegreen.csproj",
+        "packagesPath": "/Users/katejackson/.nuget/packages/",
+        "outputPath": "/Users/katejackson/Documents/csci340-iseegreen/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/katejackson/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }

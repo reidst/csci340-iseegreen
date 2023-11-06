@@ -1,10 +1,12 @@
 html {
   font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 }
 
@@ -20,3 +22,109 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+:root {
+  --colormain: #486034;
+  --colorsecondary: white;
+}
+
+/* navbar & footer */
+
+footer {
+  background-color: var(--colormain); 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.privlink {
+  color: var(--colorsecondary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar {
+  background-color: var(--colormain);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* landing page */
+
+#home_loginbutton {
+  position: absolute;
+  right: 2%;
+  top: 20%;
+  bottom: 20%;
+
+  background-color: var(--colorsecondary); /* Green */
+  border: none;
+  color: var(--colormain);
+  padding: 5px 15px;
+  text-align: center;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#jumbo {
+  display: block;
+  width: 100%;
+  padding: 0px;
+  align-self: center;
+  background: #00000000;
+}
+
+/* why isn't the image going all the way across the screen??? */
+
+#home_rect {
+  width: 352px;
+  height: 268px;
+  padding: 8px 8px 8px 8px;
+  opacity: 87%;
+  background: var(--colormain);
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 22px 22px 22px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.col {
+  display: block;
+  text-align: center
+   
+}
+
+
+#home_bigtext {
+  height: 39px;
+  color: var(--colorsecondary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home_searchbutton {
+  background-color: var(--colorsecondary); /* Green */
+  border: none;
+  color: var(--colormain);
+  padding: 10px 48px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#home_smalltext {
+  color: var(--colorsecondary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+
