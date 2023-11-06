@@ -25,12 +25,25 @@ body {
 
 
 
+
+
+
+
+
 :root {
   --colormain: #486034;
   --colorsecondary: white;
 }
 
+
+
+
+
 /* navbar & footer */
+
+
+
+
 
 footer {
   background-color: var(--colormain); 
@@ -47,7 +60,16 @@ footer {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
+
+
 /* landing page */
+
+
+
+
+
 
 #home_loginbutton {
   position: absolute;
@@ -64,6 +86,7 @@ footer {
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+/* 
 #jumbo {
   display: block;
   width: 100%;
@@ -71,8 +94,7 @@ footer {
   align-self: center;
   background: #00000000;
 }
-
-/* why isn't the image going all the way across the screen??? */
+*/
 
 #home_rect {
   width: 352px;
@@ -123,6 +145,19 @@ footer {
 #home_smalltext {
   color: var(--colorsecondary);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* Privacy Policy */
+
+#privacy_header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+#privacy_text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 }
 
 
