@@ -1,0 +1,73 @@
+@page
+@model csci340_iseegreen.Pages.Taxa.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Taxa</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.family)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.family)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.SpecificEpithet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.SpecificEpithet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.InfraspecificEpithet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.InfraspecificEpithet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.TaxonRank)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.TaxonRank)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.HybridGenus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.HybridGenus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.HybridSpecies)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.HybridSpecies)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.Authors)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.Authors)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.USDAsymbol)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.USDAsymbol)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Taxa.USDAsynonym)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Taxa.USDAsynonym)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Taxa?.kew_id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

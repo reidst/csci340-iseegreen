@@ -1,0 +1,54 @@
+@page
+@model csci340_iseegreen.Pages.Synonyms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Synonyms[0].accepted_kew_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Synonyms[0].InfraspecificEpithet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Synonyms[0].TaxonRank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Synonyms[0].Authors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Synonyms) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.accepted_kew_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfraspecificEpithet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxonRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authors)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.kew_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.kew_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.kew_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

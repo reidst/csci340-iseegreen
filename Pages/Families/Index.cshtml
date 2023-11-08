@@ -1,0 +1,36 @@
+@page
+@model csci340_iseegreen.Pages.Families.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Families[0].TranslateTo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Families) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranslateTo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.family">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.family">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.family">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

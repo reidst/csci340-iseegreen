@@ -9,37 +9,157 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = csci340_iseegreen
 build_property.RootNamespace = csci340_iseegreen
-build_property.ProjectDir = /Users/katejackson/Documents/csci340-iseegreen/
+build_property.ProjectDir = C:\Users\user\repos\csci340-iseegreen\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/katejackson/Documents/csci340-iseegreen
+build_property.MSBuildProjectDirectory = C:\Users\user\repos\csci340-iseegreen
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+[C:/Users/user/repos/csci340-iseegreen/Pages/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+[C:/Users/user/repos/csci340-iseegreen/Pages/Categories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+[C:/Users/user/repos/csci340-iseegreen/Pages/Categories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/user/repos/csci340-iseegreen/Pages/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/user/repos/csci340-iseegreen/Pages/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/user/repos/csci340-iseegreen/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/katejackson/Documents/csci340-iseegreen/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-z4vc9p7ete
+[C:/Users/user/repos/csci340-iseegreen/Pages/Families/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFtaWxpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Families/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFtaWxpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Families/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFtaWxpZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Families/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFtaWxpZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Families/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmFtaWxpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Genera/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Genera/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Genera/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Genera/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Genera/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Synonyms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3lub255bXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Synonyms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3lub255bXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Synonyms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3lub255bXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Synonyms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3lub255bXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Synonyms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3lub255bXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Taxa/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Taxa/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4YVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Taxa/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4YVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Taxa/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4YVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Taxa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/TaxonomicOrders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4b25vbWljT3JkZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/TaxonomicOrders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4b25vbWljT3JkZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/TaxonomicOrders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4b25vbWljT3JkZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/TaxonomicOrders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4b25vbWljT3JkZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/TaxonomicOrders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGF4b25vbWljT3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/repos/csci340-iseegreen/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-7lzgd88q7g

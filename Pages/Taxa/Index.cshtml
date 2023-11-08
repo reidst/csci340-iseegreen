@@ -1,0 +1,84 @@
+@page
+@model csci340_iseegreen.Pages.Taxa.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].family)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].InfraspecificEpithet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].HybridGenus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].HybridSpecies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].Authors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].USDAsymbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].USDAsynonym)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Taxa) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.family)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecificEpithet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfraspecificEpithet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxonRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HybridGenus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HybridSpecies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USDAsymbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USDAsynonym)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.kew_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.kew_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.kew_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
