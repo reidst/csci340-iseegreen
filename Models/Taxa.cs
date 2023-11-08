@@ -6,11 +6,9 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string kew_id { get; set; }
+        public string KewID { get; set; }
         [StringLength(255)]
-        public string family { get; set; }
-        [StringLength(255)]
-        public Genera genus { get; set; }
+        public string GenusID { get; set; }
         [StringLength(255)]
         public string SpecificEpithet { get; set; }
         [StringLength(255)]
@@ -27,5 +25,7 @@ namespace csci340_iseegreen.Models
         public string USDAsymbol { get; set; }
         [StringLength(255)]
         public string USDAsynonym { get; set; }
+
+        public Genera Genus { get; set; }
     }
 }
