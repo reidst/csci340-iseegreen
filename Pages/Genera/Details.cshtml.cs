@@ -28,7 +28,7 @@ namespace csci340_iseegreen.Pages.Genera
                 return NotFound();
             }
 
-            var genera = await _context.Genera.FirstOrDefaultAsync(m => m.genus == id);
+            var genera = await _context.Genera.FirstOrDefaultAsync(m => m.GenusID == id);
             if (genera == null)
             {
                 return NotFound();

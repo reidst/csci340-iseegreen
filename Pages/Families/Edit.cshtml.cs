@@ -30,7 +30,7 @@ namespace csci340_iseegreen.Pages.Families
                 return NotFound();
             }
 
-            var families = await _context.Families.FirstOrDefaultAsync(m => m.family == id);
+            var families = await _context.Families.FirstOrDefaultAsync(m => m.Family == id);
             if (families == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace csci340_iseegreen.Pages.Families
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FamiliesExists(Families.family))
+                if (!FamiliesExists(Families.Family))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace csci340_iseegreen.Pages.Families
 
         private bool FamiliesExists(string id)
         {
-            return (_context.Families?.Any(e => e.family == id)).GetValueOrDefault();
+            return (_context.Families?.Any(e => e.Family == id)).GetValueOrDefault();
         }
     }
 }

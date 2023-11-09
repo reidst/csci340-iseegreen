@@ -29,7 +29,7 @@ namespace csci340_iseegreen.Pages.Taxa
                 return NotFound();
             }
 
-            var taxa = await _context.Taxa.FirstOrDefaultAsync(m => m.kew_id == id);
+            var taxa = await _context.Taxa.FirstOrDefaultAsync(m => m.KewID == id);
 
             if (taxa == null)
             {

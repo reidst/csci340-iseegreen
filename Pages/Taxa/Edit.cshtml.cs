@@ -30,7 +30,7 @@ namespace csci340_iseegreen.Pages.Taxa
                 return NotFound();
             }
 
-            var taxa =  await _context.Taxa.FirstOrDefaultAsync(m => m.kew_id == id);
+            var taxa =  await _context.Taxa.FirstOrDefaultAsync(m => m.KewID == id);
             if (taxa == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace csci340_iseegreen.Pages.Taxa
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TaxaExists(Taxa.kew_id))
+                if (!TaxaExists(Taxa.KewID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace csci340_iseegreen.Pages.Taxa
 
         private bool TaxaExists(string id)
         {
-          return (_context.Taxa?.Any(e => e.kew_id == id)).GetValueOrDefault();
+          return (_context.Taxa?.Any(e => e.KewID == id)).GetValueOrDefault();
         }
     }
 }

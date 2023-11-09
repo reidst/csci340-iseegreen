@@ -28,7 +28,7 @@ namespace csci340_iseegreen.Pages.Families
                 return NotFound();
             }
 
-            var families = await _context.Families.FirstOrDefaultAsync(m => m.family == id);
+            var families = await _context.Families.FirstOrDefaultAsync(m => m.Family == id);
             if (families == null)
             {
                 return NotFound();

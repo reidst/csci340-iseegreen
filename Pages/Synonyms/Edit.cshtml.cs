@@ -30,7 +30,7 @@ namespace csci340_iseegreen.Pages.Synonyms
                 return NotFound();
             }
 
-            var synonyms =  await _context.Synonyms.FirstOrDefaultAsync(m => m.kew_id == id);
+            var synonyms =  await _context.Synonyms.FirstOrDefaultAsync(m => m.KewID == id);
             if (synonyms == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace csci340_iseegreen.Pages.Synonyms
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SynonymsExists(Synonyms.kew_id))
+                if (!SynonymsExists(Synonyms.KewID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace csci340_iseegreen.Pages.Synonyms
 
         private bool SynonymsExists(string id)
         {
-          return (_context.Synonyms?.Any(e => e.kew_id == id)).GetValueOrDefault();
+          return (_context.Synonyms?.Any(e => e.KewID == id)).GetValueOrDefault();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace csci340_iseegreen.Pages.Genera
                 return NotFound();
             }
 
-            var genera =  await _context.Genera.FirstOrDefaultAsync(m => m.genus == id);
+            var genera =  await _context.Genera.FirstOrDefaultAsync(m => m.GenusID == id);
             if (genera == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace csci340_iseegreen.Pages.Genera
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!GeneraExists(Genera.genus))
+                if (!GeneraExists(Genera.GenusID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace csci340_iseegreen.Pages.Genera
 
         private bool GeneraExists(string id)
         {
-          return (_context.Genera?.Any(e => e.genus == id)).GetValueOrDefault();
+          return (_context.Genera?.Any(e => e.GenusID == id)).GetValueOrDefault();
         }
     }
 }

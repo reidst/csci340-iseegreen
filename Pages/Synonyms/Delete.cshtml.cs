@@ -29,7 +29,7 @@ namespace csci340_iseegreen.Pages.Synonyms
                 return NotFound();
             }
 
-            var synonyms = await _context.Synonyms.FirstOrDefaultAsync(m => m.kew_id == id);
+            var synonyms = await _context.Synonyms.FirstOrDefaultAsync(m => m.KewID == id);
 
             if (synonyms == null)
             {

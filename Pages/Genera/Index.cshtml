@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Genera[0].kew_id)
+                @Html.DisplayNameFor(model => model.Genera[0].KewID)
             </th>
             <th></th>
         </tr>
@@ -23,12 +23,12 @@
 @foreach (var item in Model.Genera) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.kew_id)
+                @Html.DisplayFor(modelItem => item.KewID)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.genus">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.genus">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.genus">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.GenusID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GenusID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GenusID">Delete</a>
             </td>
         </tr>
 }
