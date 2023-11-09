@@ -6,15 +6,15 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string Family { get; set; }
+        public string? Family { get; set; }
         [StringLength(255)]
-        public string TranslateTo { get; set; }
+        public string? TranslateTo { get; set; }
         [StringLength(255)]
-        public string CategoryID { get; set; }
+        public string? CategoryID { get; set; }
         [StringLength(255)]
-        public string TaxonomicOrderID { get; set; }
+        public string? TaxonomicOrderID { get; set; }
 
-        public Categories Category { get; set; }
-        public TaxonomicOrders TaxonomicOrder { get; set; }
+        public Categories? Category { get; set; }
+        public TaxonomicOrders? TaxonomicOrder { get; set; }
     }
 }

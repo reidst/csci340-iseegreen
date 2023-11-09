@@ -6,13 +6,13 @@ namespace csci340_iseegreen.Models
     {
         [Required]
         [StringLength(255)]
-        public string KewID { get; set; }
+        public string? KewID { get; set; }
         [Key]
         [StringLength(255)]
-        public string GenusID { get; set; }
+        public string? GenusID { get; set; }
         [StringLength(255)]
-        public string FamilyID { get; set; }
+        public string? FamilyID { get; set; }
 
-        public Families Family { get; set; }
+        public Families? Family { get; set; }
     }
 }

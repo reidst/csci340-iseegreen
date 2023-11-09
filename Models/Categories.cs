@@ -6,9 +6,9 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string Category { get; set; }
+        public string? Category { get; set; }
         [StringLength(255)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public int Sort { get; set; }
         public long APG4sort { get; set; }
     }

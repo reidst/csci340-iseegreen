@@ -6,26 +6,26 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string KewID { get; set; }
+        public string? KewID { get; set; }
         [StringLength(255)]
-        public string GenusID { get; set; }
+        public string? GenusID { get; set; }
         [StringLength(255)]
-        public string SpecificEpithet { get; set; }
+        public string? SpecificEpithet { get; set; }
         [StringLength(255)]
-        public string InfraspecificEpithet { get; set; }
+        public string? InfraspecificEpithet { get; set; }
         [StringLength(255)]
-        public string TaxonRank { get; set; }
+        public string? TaxonRank { get; set; }
         [StringLength(255)]
-        public string HybridGenus { get; set; }
+        public string? HybridGenus { get; set; }
         [StringLength(255)]
-        public string HybridSpecies { get; set; }
+        public string? HybridSpecies { get; set; }
         [StringLength(255)]
-        public string Authors { get; set; }
+        public string? Authors { get; set; }
         [StringLength(255)]
-        public string USDAsymbol { get; set; }
+        public string? USDAsymbol { get; set; }
         [StringLength(255)]
-        public string USDAsynonym { get; set; }
+        public string? USDAsynonym { get; set; }
 
-        public Genera Genus { get; set; }
+        public Genera? Genus { get; set; }
     }
 }
