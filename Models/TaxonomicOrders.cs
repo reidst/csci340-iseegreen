@@ -7,7 +7,7 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string? TaxonomicOrder { get; set; }
+        public required string TaxonomicOrder { get; set; }
         [StringLength(255)]
         public string? SortLevel1Heading { get; set; }
         [DefaultValue(0)]

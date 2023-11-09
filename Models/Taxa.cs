@@ -6,7 +6,7 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string? KewID { get; set; }
+        public required string KewID { get; set; }
         [StringLength(255)]
         public string? GenusID { get; set; }
         [StringLength(255)]

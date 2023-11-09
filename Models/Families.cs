@@ -6,7 +6,7 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         [StringLength(255)]
-        public string? Family { get; set; }
+        public required string Family { get; set; }
         [StringLength(255)]
         public string? TranslateTo { get; set; }
         [StringLength(255)]
