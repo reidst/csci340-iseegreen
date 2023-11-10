@@ -1,0 +1,39 @@
+@page
+@model csci340_iseegreen.Pages.Genera.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Genera</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Genera.KewID" class="control-label"></label>
+                <input asp-for="Genera.KewID" class="form-control" />
+                <span asp-validation-for="Genera.KewID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genera.GenusID" class="control-label"></label>
+                <input asp-for="Genera.GenusID" class="form-control" />
+                <span asp-validation-for="Genera.GenusID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,36 @@
+@page
+@model csci340_iseegreen.Pages.Genera.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Genera[0].KewID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Genera) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KewID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.GenusID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GenusID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GenusID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,91 @@
+@page
+@model csci340_iseegreen.Pages.TaxonomicOrders.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TaxonomicOrders</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel1Heading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel1Heading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel2Heading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel2Heading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel3Heading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel3Heading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel4Heading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel4Heading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel5Heading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel5Heading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel5)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel5)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel6Heading)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel6Heading)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TaxonomicOrders.SortLevel6)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TaxonomicOrders.SortLevel6)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TaxonomicOrders?.TaxonomicOrder">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

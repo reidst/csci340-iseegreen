@@ -1,0 +1,102 @@
+@page
+@model csci340_iseegreen.Pages.TaxonomicOrders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel1Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel2Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel3Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel4Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel5Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel6Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxonomicOrders[0].SortLevel6)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TaxonomicOrders) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel1Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel2Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel3Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel4Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel5Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel6Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortLevel6)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TaxonomicOrder">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TaxonomicOrder">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TaxonomicOrder">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,90 @@
+@page
+@model csci340_iseegreen.Pages.TaxonomicOrders.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TaxonomicOrders</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TaxonomicOrders.TaxonomicOrder" />
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel1Heading" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel1Heading" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel1Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel1" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel1" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel2Heading" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel2Heading" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel2Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel2" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel2" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel3Heading" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel3Heading" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel3Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel3" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel3" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel4Heading" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel4Heading" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel4Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel4" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel4" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel5Heading" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel5Heading" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel5Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel5" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel5" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel6Heading" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel6Heading" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel6Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxonomicOrders.SortLevel6" class="control-label"></label>
+                <input asp-for="TaxonomicOrders.SortLevel6" class="form-control" />
+                <span asp-validation-for="TaxonomicOrders.SortLevel6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

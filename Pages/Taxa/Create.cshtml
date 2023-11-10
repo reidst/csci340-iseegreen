@@ -1,0 +1,74 @@
+@page
+@model csci340_iseegreen.Pages.Taxa.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Taxa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Taxa.KewID" class="control-label"></label>
+                <input asp-for="Taxa.KewID" class="form-control" />
+                <span asp-validation-for="Taxa.KewID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.SpecificEpithet" class="control-label"></label>
+                <input asp-for="Taxa.SpecificEpithet" class="form-control" />
+                <span asp-validation-for="Taxa.SpecificEpithet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.InfraspecificEpithet" class="control-label"></label>
+                <input asp-for="Taxa.InfraspecificEpithet" class="form-control" />
+                <span asp-validation-for="Taxa.InfraspecificEpithet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.TaxonRank" class="control-label"></label>
+                <input asp-for="Taxa.TaxonRank" class="form-control" />
+                <span asp-validation-for="Taxa.TaxonRank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.HybridGenus" class="control-label"></label>
+                <input asp-for="Taxa.HybridGenus" class="form-control" />
+                <span asp-validation-for="Taxa.HybridGenus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.HybridSpecies" class="control-label"></label>
+                <input asp-for="Taxa.HybridSpecies" class="form-control" />
+                <span asp-validation-for="Taxa.HybridSpecies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.Authors" class="control-label"></label>
+                <input asp-for="Taxa.Authors" class="form-control" />
+                <span asp-validation-for="Taxa.Authors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.USDAsymbol" class="control-label"></label>
+                <input asp-for="Taxa.USDAsymbol" class="form-control" />
+                <span asp-validation-for="Taxa.USDAsymbol" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Taxa.USDAsynonym" class="control-label"></label>
+                <input asp-for="Taxa.USDAsynonym" class="form-control" />
+                <span asp-validation-for="Taxa.USDAsynonym" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
