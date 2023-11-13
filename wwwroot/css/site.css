@@ -52,6 +52,10 @@ body {
 footer {
   background-color: var(--colormain); 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .privlink {
