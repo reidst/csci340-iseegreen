@@ -1,0 +1,70 @@
+@page
+@model csci340_iseegreen.Pages.Search.IndexModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].Genus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].InfraspecificEpithet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].HybridGenus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].HybridSpecies)
+            </th>
+        
+            <!--<th>
+                @Html.DisplayNameFor(model => model.Taxa[0].Authors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].USDAsymbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].USDAsynonym)
+            </th> -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Taxa) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenusID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecificEpithet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfraspecificEpithet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxonRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HybridGenus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HybridSpecies)
+            </td>
+            
+    
+        </tr>
+}
+    </tbody>
+</table>
