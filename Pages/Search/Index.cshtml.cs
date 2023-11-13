@@ -28,6 +28,7 @@ namespace csci340_iseegreen.Pages.Search
             {
                 Taxa = await _context.Taxa.ToListAsync();
             }
+
         }
     }
 }

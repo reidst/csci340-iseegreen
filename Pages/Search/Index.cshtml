@@ -2,17 +2,17 @@
 @model csci340_iseegreen.Pages.Search.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search";
 }
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Taxa[0].Genus)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
             </th>
@@ -28,6 +28,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Taxa[0].HybridSpecies)
             </th>
+        
             <!--<th>
                 @Html.DisplayNameFor(model => model.Taxa[0].Authors)
             </th>
@@ -44,6 +45,9 @@
 @foreach (var item in Model.Taxa) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.GenusID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.SpecificEpithet)
             </td>
             <td>
@@ -59,12 +63,7 @@
                 @Html.DisplayFor(modelItem => item.HybridSpecies)
             </td>
             
-            
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.KewID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.KewID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.KewID">Delete</a>
-            </td>
+    
         </tr>
 }
     </tbody>
