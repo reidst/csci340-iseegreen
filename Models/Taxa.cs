@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace csci340_iseegreen.Models
@@ -10,8 +11,10 @@ namespace csci340_iseegreen.Models
         [StringLength(255)]
         public string? GenusID { get; set; }
         [StringLength(255)]
+        [DisplayName("Species")]
         public string? SpecificEpithet { get; set; }
         [StringLength(255)]
+        [DisplayName("Infraspecies")]
         public string? InfraspecificEpithet { get; set; }
         [StringLength(255)]
         public string? TaxonRank { get; set; }

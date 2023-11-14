@@ -4,8 +4,17 @@
 @{
     ViewData["Title"] = "Search";
 }
+<br>
 
-<h1>Index</h1>
+<h1>Search</h1>
+
+<form>
+    <p>
+        <label for="SearchString">Search by KewID:</label>
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 
 <table class="table">
     <thead>
@@ -22,6 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
             </th>
+
+
+<!--
             <th>
                 @Html.DisplayNameFor(model => model.Taxa[0].HybridGenus)
             </th>
@@ -29,7 +41,7 @@
                 @Html.DisplayNameFor(model => model.Taxa[0].HybridSpecies)
             </th>
         
-            <!--<th>
+            <th>
                 @Html.DisplayNameFor(model => model.Taxa[0].Authors)
             </th>
             <th>
@@ -44,6 +56,7 @@
     <tbody>
 @foreach (var item in Model.Taxa) {
         <tr>
+        
             <td>
                 @Html.DisplayFor(modelItem => item.GenusID)
             </td>
@@ -56,13 +69,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TaxonRank)
             </td>
+            
+
             <td>
                 @Html.DisplayFor(modelItem => item.HybridGenus)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HybridSpecies)
             </td>
-            
     
         </tr>
 }
