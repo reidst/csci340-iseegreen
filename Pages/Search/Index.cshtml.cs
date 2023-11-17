@@ -36,7 +36,7 @@ namespace csci340_iseegreen.Pages.Search
                         select m;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                taxon = taxon.Where(s => s.KewID.Contains(SearchString));
+                taxon = taxon.Where(s => s.SpecificEpithet.Contains(SearchString));
             }
 
             Taxa = await taxon.ToListAsync();

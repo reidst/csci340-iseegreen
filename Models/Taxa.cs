@@ -5,6 +5,7 @@ namespace csci340_iseegreen.Models
 {
     public class Taxa
     {
+
         [Key]
         [StringLength(255)]
         public required string KewID { get; set; }
@@ -17,8 +18,10 @@ namespace csci340_iseegreen.Models
         [DisplayName("Infraspecies")]
         public string? InfraspecificEpithet { get; set; }
         [StringLength(255)]
+        [DisplayName("Rank")]
         public string? TaxonRank { get; set; }
         [StringLength(255)]
+        
         public string? HybridGenus { get; set; }
         [StringLength(255)]
         public string? HybridSpecies { get; set; }
@@ -29,6 +32,6 @@ namespace csci340_iseegreen.Models
         [StringLength(255)]
         public string? USDAsynonym { get; set; }
 
-        public Genera? Genus { get; set; }
+        public Genera? Genus { get; set; } 
     }
 }
