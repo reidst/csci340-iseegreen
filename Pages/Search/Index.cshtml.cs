@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using csci340_iseegreen.Data;
 using csci340_iseegreen.Models;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace csci340_iseegreen.Pages.Search
 {
@@ -18,9 +19,18 @@ namespace csci340_iseegreen.Pages.Search
         public IndexModel(csci340_iseegreen.Data.ISeeGreenContext context)
         {
             _context = context;
+            CategoryOptions = new List<(string, string)>();
+            foreach (var cat in context.Categories)
+            {
+                CategoryOptions.Add((cat.Category, cat.Description));
+            }
         }
 
         public IList<csci340_iseegreen.Models.Taxa> Taxa { get;set; } = default!;
+
+        // List of (CategoryID, FullCategoryName) entries for all categories
+        // e.g., ("F", "Fern")
+        public IList<(string, string)> CategoryOptions { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; }
@@ -28,7 +38,7 @@ namespace csci340_iseegreen.Pages.Search
         public SelectList? Categories { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string? Category { get; set; }
+        public string? CategoryFilter { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -36,7 +46,11 @@ namespace csci340_iseegreen.Pages.Search
                         select m;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                taxon = taxon.Where(s => s.SpecificEpithet.Contains(SearchString));
+                taxon = taxon.Where(s => s.SpecificEpithet.Contains(SearchString ?? ""));
+            }
+            if (!string.IsNullOrEmpty(CategoryFilter))
+            {
+                taxon = taxon.Where(s => s.Genus.Family.CategoryID.Contains(CategoryFilter ?? ""));
             }
 
             Taxa = await taxon.ToListAsync();
