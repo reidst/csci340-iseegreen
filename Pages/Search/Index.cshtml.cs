@@ -35,6 +35,9 @@ namespace csci340_iseegreen.Pages.Search
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string? FamilyString { get; set; }
+
         public SelectList? Categories { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -46,11 +49,15 @@ namespace csci340_iseegreen.Pages.Search
                         select m;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                taxon = taxon.Where(s => s.SpecificEpithet.Contains(SearchString ?? ""));
+                taxon = taxon.Where(s => s.SpecificEpithet.Contains(SearchString));
+            }
+            if (!string.IsNullOrEmpty(FamilyString))
+            {
+                taxon = taxon.Where(s => s.Genus.FamilyID.Contains(FamilyString));
             }
             if (!string.IsNullOrEmpty(CategoryFilter))
             {
-                taxon = taxon.Where(s => s.Genus.Family.CategoryID.Contains(CategoryFilter ?? ""));
+                taxon = taxon.Where(s => s.Genus.Family.CategoryID.Contains(CategoryFilter));
             }
 
             Taxa = await taxon.ToListAsync();
