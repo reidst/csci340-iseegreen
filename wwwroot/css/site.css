@@ -61,12 +61,19 @@ footer {
 .privlink {
   color: var(--colorsecondary);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.privlink:hover {
+  color:black;
 }
 
 .navbar {
   background-color: var(--colormain);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 
 
 
@@ -93,7 +100,9 @@ footer {
   font-size: 12px;
   font-family: Verdana, Geneva, Tahoma, sans-serif
 
+
 }
+
 
 /* 
 #jumbo {
@@ -155,7 +164,16 @@ footer {
   display: inline-block;
   font-size: 16px;
   margin-bottom: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+
+#home_searchbutton:hover {
+  background-color: rgb(201, 201, 201);
+  color: darkgreen;
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
 }
 
 #home_smalltext {

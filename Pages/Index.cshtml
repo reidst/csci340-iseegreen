@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -22,7 +22,7 @@
     <div class=rectangle id=home_rect>
         <div class=col>
             <p id=home_bigtext>Get Started</p>
-            <button type="button" id=home_searchbutton>Search by Name</button>
+            <button type="button" id=home_searchbutton onclick="location.href='/Search/Index';" >Search by Name</button>
         </div>
         <!--need to figure out how to overlay the box w/ text, inputs, and link -->
     </div>
