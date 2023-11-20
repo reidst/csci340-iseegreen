@@ -12,7 +12,20 @@
     <p>
         <label for="SearchString">Search by Species:</label>
         <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
+        
+        <label for="FamilyString">Search by Family:</label>
+        <input type="text" asp-for="FamilyString" />
+        
+        <label for="CategoryFilter">Filter by Category:</label>
+        <select asp-for="CategoryFilter" asp-items="Model.Categories">
+            <option value="">All</option>
+            @foreach ((string cat, string desc) in Model.CategoryOptions)
+            {
+                <option value="@cat">@desc</option>
+            }
+        </select>
+
+        <input type="submit" value="Apply Filters" />
     </p>
 </form>
 
