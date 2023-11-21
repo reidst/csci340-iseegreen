@@ -43,3 +43,13 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.nav-link {
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  box-shadow:  0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+ 

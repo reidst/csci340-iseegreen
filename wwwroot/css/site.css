@@ -73,14 +73,17 @@ footer {
   background-color: var(--colormain);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-
-
+ 
 
 
 
 /* landing page */
 
+
+.containerhome {
+  position: relative;
+  text-align: center;
+}
 
 
 
@@ -115,6 +118,9 @@ footer {
 */
 
 #home_rect {
+  position: absolute;
+  left: 100px;
+  top: 100px;
   width: 352px;
   height: 268px;
   padding: 8px 8px 8px 8px;
@@ -128,20 +134,40 @@ footer {
   justify-content: center;
   margin: auto;
   box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#home_rect:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 #home_img{
-  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 22px 22px 22px 22px;
-  height: 268px;
+  -webkit-transform: scaleX(-1) scaleY(1);
+  transform: scaleX(-1) scaleY(1);
+
+  object-fit: cover;
+  height: 600px;
+
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#home_img:hover {
+  -webkit-transform: scaleX(-1.02) scaleY(1.02);
+  transform: scaleX(-1.02) scaleY(1.02);
 }
 
 .col {
   display: block;
   text-align: center  
 }
+
+
 
 
 #home_bigtext {
@@ -181,6 +207,76 @@ footer {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.container1 {
+  position: relative;
+  text-align: left;
+  align-items: left;
+}
+
+#gallery1 {
+  width: 400px;
+  position:relative;
+  left:0;
+  object-fit: cover;
+
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+#gallery1:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+#col1 {
+  width: 30%;
+  position:relative;
+  text-align: left;
+}
+#gallery2 {
+  width: 400px;
+  position:relative;
+  left:0;
+  object-fit: cover;
+
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+#gallery2:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+#col2{
+  width: 30%;
+}
+#gallery3 {
+  width: 400px;
+  position:relative;
+  left:0;
+  object-fit: cover;
+
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+#gallery3:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+#col3 {
+  width: 30%;
+  position:relative;
+  text-align: right;
+}
 
 /* Privacy Policy */
 
