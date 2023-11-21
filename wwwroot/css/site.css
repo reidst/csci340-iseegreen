@@ -214,15 +214,17 @@ footer {
 }
 
 #gallery1 {
-  width: 400px;
-  position:relative;
-  left:0;
+  width:95%;
+  overflow:hidden;
+  height: auto;
+  position:absolute;
   object-fit: cover;
 
   transition: .5s ease-in-out;
   cursor: pointer;
   -webkit-transform: scale(1);
 	transform: scale(1);
+  
 }
 
 #gallery1:hover {
@@ -236,8 +238,8 @@ footer {
   text-align: left;
 }
 #gallery2 {
-  width: 400px;
-  position:relative;
+  width:100%;
+  height: auto;
   left:0;
   object-fit: cover;
 
@@ -256,8 +258,8 @@ footer {
   width: 30%;
 }
 #gallery3 {
-  width: 400px;
-  position:relative;
+  width:100%;
+  height: auto;
   left:0;
   object-fit: cover;
 
