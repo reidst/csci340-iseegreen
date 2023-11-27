@@ -147,8 +147,8 @@ footer {
 }
 
 #home_img{
-  -webkit-transform: scaleX(-1) scaleY(1);
-  transform: scaleX(-1) scaleY(1);
+  -webkit-transform: scaleX(1) scaleY(1);
+  transform: scaleX(1) scaleY(1);
 
   object-fit: cover;
   height: 600px;
@@ -158,8 +158,8 @@ footer {
 }
 
 #home_img:hover {
-  -webkit-transform: scaleX(-1.02) scaleY(1.02);
-  transform: scaleX(-1.02) scaleY(1.02);
+  -webkit-transform: scaleX(1.02) scaleY(1.02);
+  transform: scaleX(1.02) scaleY(1.02);
 }
 
 .col {

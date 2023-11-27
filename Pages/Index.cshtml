@@ -36,6 +36,40 @@ window.onload = function getRandomImage() {
     randomImage.splice(number3, 1);
     var number4 = Math.floor(Math.random()*randomImage.length);
     document.getElementById("gallery3").src = randomImage[number4];
+
+    
+    var img1 = document.getElementById("gallery1")
+    img1.onclick = swapImages1
+
+    var img2 = document.getElementById("gallery2")
+    img2.onclick = swapImages2
+
+    var img3 = document.getElementById("gallery3")
+    img3.onclick = swapImages3
+    }
+
+function swapImages1(){
+var image1 = document.getElementById("gallery1")
+var image2 = document.getElementById("home_img")
+var src = image1.src;
+image1.src = image2.src;
+image2.src = src;
+}
+
+function swapImages2(){
+var image1 = document.getElementById("gallery2")
+var image2 = document.getElementById("home_img")
+var src = image1.src;
+image1.src = image2.src;
+image2.src = src;
+}
+
+function swapImages3(){
+var image1 = document.getElementById("gallery3")
+var image2 = document.getElementById("home_img")
+var src = image1.src;
+image1.src = image2.src;
+image2.src = src;
 }
 
 </script>
