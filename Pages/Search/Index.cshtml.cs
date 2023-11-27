@@ -60,7 +60,7 @@ namespace csci340_iseegreen.Pages.Search
                 taxon = taxon.Where(s => s.Genus.Family.CategoryID.Contains(CategoryFilter));
             }
 
-            Taxa = await taxon.ToListAsync();
+            Taxa = await taxon.Take(20).ToListAsync();
         }
     }
 }
