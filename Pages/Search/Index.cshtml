@@ -33,10 +33,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].Genus)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Taxa[0].Genus)
+                </a>
+                
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
+                </a>
+                
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Taxa[0].InfraspecificEpithet)
@@ -95,3 +101,21 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Taxa.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Taxa.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Taxa.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Taxa.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
