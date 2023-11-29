@@ -6,19 +6,16 @@
 }
 <br>
 
-<h1>Search</h1>
-
+<h1 id="search_heading">Search</h1>
 <form>
     <p>
-        <label for="SearchString">Search by Species:</label>
-        <input type="text" asp-for="SearchString" />
+        <input type="text" placeholder="Species" asp-for="SearchString" />
         
-        <label for="FamilyString">Search by Family:</label>
-        <input type="text" asp-for="FamilyString" />
+        <input type="text" placeholder="Family" asp-for="FamilyString" />
         
-        <label for="CategoryFilter">Filter by Category:</label>
-        <select asp-for="CategoryFilter" asp-items="Model.Categories">
-            <option value="">All</option>
+    
+        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories">
+            <option value="">Category</option>
             @foreach ((string cat, string desc) in Model.CategoryOptions)
             {
                 <option value="@cat">@desc</option>
@@ -54,26 +51,6 @@
             <th id="rank">
                 @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
             </th>
-
-
-<!--
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].HybridGenus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].HybridSpecies)
-            </th>
-        
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].Authors)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].USDAsymbol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].USDAsynonym)
-            </th> -->
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -110,13 +87,15 @@
     var nextDisabled = !Model.Taxa.HasNextPage ? "disabled" : "";
 }
 
-<a asp-page="./Index"
+<a id="prevnex"
+    asp-page="./Index"
    asp-route-pageIndex="@(Model.Taxa.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     Previous
 </a>
-<a asp-page="./Index"
+<a id="prevnex"
+    asp-page="./Index"
    asp-route-pageIndex="@(Model.Taxa.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">

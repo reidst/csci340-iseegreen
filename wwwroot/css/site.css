@@ -325,4 +325,72 @@ tr:hover {
   background-color: #bdd0ac;
 }
 
+input[type=text] {
+  padding: 10px;
+  margin: 10px;
+  height: 43px;
+  border-color: lightgray;
+  border-radius: 5px;
+}
 
+input[type=text]:focus {
+  outline: none;
+  border-color: var(--colormain);
+}
+
+.custom_select {
+  padding: 10px;
+  margin: 10px;
+
+  border-color: lightgray;
+  color: var(--colortertiary);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom_select:hover {
+  border-color: var(--colormain)
+}
+
+.custom_select:focus {
+  border-color: var(--colormain);
+}
+
+input[type=submit] {
+  background-color: rgb(244, 244, 244);
+  color: var(--colortertiary);
+
+  padding: 5px;
+  margin: 10px;
+
+  border-color: lightgray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease-in-out .5s;
+}
+
+input[type=submit]:hover {
+  background-color: white;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: black;
+}
+
+
+#search_heading {
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 5px; 
+  text-align: center;
+}
+
+#prevnex {
+  background-color: var(--colormain);
+  border-color: var(--colormain);
+}
+
+#prevnex:disabled {
+  background-color: var(--colormain);
+  border-color: var(--colormain);
+}
