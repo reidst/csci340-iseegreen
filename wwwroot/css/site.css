@@ -33,6 +33,7 @@ body {
 :root {
   --colormain: #557639;
   --colorsecondary: white;
+  --colortertiary: rgb(39, 77, 39);
 }
 
 
@@ -300,5 +301,28 @@ footer {
   justify-content: left;
 }
 
+
+/* Search Page */
+
+a {
+  color: var(--colormain);
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--colortertiary);
+}
+
+th, td {
+  width: 20%;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #bdd0ac;
+}
 
 

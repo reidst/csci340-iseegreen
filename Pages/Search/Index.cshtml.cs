@@ -10,6 +10,7 @@ using csci340_iseegreen.Data;
 using csci340_iseegreen.Models;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Configuration;
+using System.Drawing;
 
 namespace csci340_iseegreen.Pages.Search
 {
@@ -17,6 +18,8 @@ namespace csci340_iseegreen.Pages.Search
     {
         private readonly csci340_iseegreen.Data.ISeeGreenContext _context;
         private readonly IConfiguration Configuration;
+        private DbSet<Models.Genera> genera;
+
         public IndexModel(csci340_iseegreen.Data.ISeeGreenContext context, IConfiguration configuration)
         {
             _context = context;
@@ -29,7 +32,7 @@ namespace csci340_iseegreen.Pages.Search
         }
 
         public PaginatedList<csci340_iseegreen.Models.Taxa> Taxa { get;set; } = default!;
-
+        public List<string> Families {get; set;}
         // List of (CategoryID, FullCategoryName) entries for all categories
         // e.g., ("F", "Fern")
         public IList<(string, string)> CategoryOptions { get; set; }
@@ -56,7 +59,7 @@ namespace csci340_iseegreen.Pages.Search
             GenusSort = String.IsNullOrEmpty(sortOrder) ? "genus": "";
 
             IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa select t; 
-
+            
             switch (sortOrder) {
                 case "species":
                     taxaIQ = taxaIQ.OrderBy(s => s.SpecificEpithet);

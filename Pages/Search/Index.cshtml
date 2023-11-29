@@ -29,25 +29,29 @@
     </p>
 </form>
 
+
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th id ="family">
+                @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family)
+            </th>
+            <th id="genus">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Taxa[0].Genus)
                 </a>
                 
             </th>
-            <th>
+            <th id="species">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
                 </a>
                 
             </th>
-            <th>
+            <th id="infra">
                 @Html.DisplayNameFor(model => model.Taxa[0].InfraspecificEpithet)
             </th>
-            <th>
+            <th id="rank">
                 @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
             </th>
 
@@ -75,26 +79,25 @@
     <tbody>
 @foreach (var item in Model.Taxa) {
         <tr>
-        
-            <td>
+            <td id="family">
+                @if (item.Genus != null){
+                    @Html.DisplayFor(modelItem => item.Genus.FamilyID);
+                 }
+                 else {
+                    <p>None</p>
+                 }
+            </td>
+            <td id="genus">
                 @Html.DisplayFor(modelItem => item.GenusID)
             </td>
-            <td>
+            <td id="species">
                 @Html.DisplayFor(modelItem => item.SpecificEpithet)
             </td>
-            <td>
+            <td id="infra">
                 @Html.DisplayFor(modelItem => item.InfraspecificEpithet)
             </td>
-            <td>
+            <td id="rank">
                 @Html.DisplayFor(modelItem => item.TaxonRank)
-            </td>
-            
-
-            <td>
-                @Html.DisplayFor(modelItem => item.HybridGenus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HybridSpecies)
             </td>
     
         </tr>
