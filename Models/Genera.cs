@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace csci340_iseegreen.Models
 {
@@ -11,7 +12,7 @@ namespace csci340_iseegreen.Models
         public required string GenusID { get; set; }
         [StringLength(255)]
         public string? FamilyID { get; set; }
-
+        [ForeignKey("FamilyID")]
         public Families? Family { get; set; }
     }
 }

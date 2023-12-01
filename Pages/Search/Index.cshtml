@@ -33,6 +33,9 @@
 <table class="table">
     <thead>
         <tr>
+             <th id ="cat">
+                @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family.Category)
+            </th>
             <th id ="family">
                 @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family)
             </th>
@@ -59,8 +62,11 @@
     <tbody>
 @foreach (var item in Model.Taxa) {
         <tr>
+            <td id="cat">
+                @Html.DisplayFor(modelItem => item.Genus.Family.Category.Description)
+            </td>
             <td id="family">
-                @Html.DisplayFor(modelItem => item.Genus.FamilyID) 
+                @Html.DisplayFor(modelItem => item.Genus.FamilyID)
             </td>
             <td id="genus">
                 @Html.DisplayFor(modelItem => item.GenusID)

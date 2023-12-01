@@ -18,7 +18,7 @@ namespace csci340_iseegreen.Pages.Search
     {
         private readonly csci340_iseegreen.Data.ISeeGreenContext _context;
         private readonly IConfiguration Configuration;
-        private DbSet<Models.Genera> genera;
+
 
         public IndexModel(csci340_iseegreen.Data.ISeeGreenContext context, IConfiguration configuration)
         {
@@ -30,6 +30,7 @@ namespace csci340_iseegreen.Pages.Search
                 CategoryOptions.Add((cat.Category, cat.Description));
             }
         }
+
 
         public PaginatedList<csci340_iseegreen.Models.Taxa> Taxa { get;set; } = default!;
         public List<string> Families {get; set;}
@@ -58,7 +59,7 @@ namespace csci340_iseegreen.Pages.Search
             SpeciesSort = String.IsNullOrEmpty(sortOrder) ? "species": "";
             GenusSort = String.IsNullOrEmpty(sortOrder) ? "genus": "";
 
-            IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa select t; 
+            IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
             
             switch (sortOrder) {
                 case "species":
@@ -92,6 +93,8 @@ namespace csci340_iseegreen.Pages.Search
             var pageSize = Configuration.GetValue("PageSize", 10);
             Taxa = await PaginatedList<csci340_iseegreen.Models.Taxa>.CreateAsync(
             taxaIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+            
+
         }
     }
 }
