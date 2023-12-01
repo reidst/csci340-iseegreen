@@ -6,95 +6,81 @@
 }
 <br>
 
-<h1>Search</h1>
+<div id="header_box">
+<h1 id="search_heading">Search</h1>
+</div>
 
 <form>
     <p>
-        <label for="SearchString">Search by Species:</label>
-        <input type="text" asp-for="SearchString" />
-        
-        <label for="FamilyString">Search by Family:</label>
-        <input type="text" asp-for="FamilyString" />
-        
-        <label for="CategoryFilter">Filter by Category:</label>
-        <select asp-for="CategoryFilter" asp-items="Model.Categories">
-            <option value="">All</option>
+
+        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories">
+            <option value="">Category</option>
             @foreach ((string cat, string desc) in Model.CategoryOptions)
             {
                 <option value="@cat">@desc</option>
             }
         </select>
+        
+        <input type="text" placeholder="Family" asp-for="FamilyString" />
+
+        <input type="text" placeholder="Genus" asp-for="GenusString" />
+        
+        <input type="text" placeholder="Species" asp-for="SearchString" />
 
         <input type="submit" value="Apply Filters" />
     </p>
 </form>
 
+
 <table class="table">
     <thead>
         <tr>
-            <th>
+             <th id ="cat">
+                @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family.Category)
+            </th>
+            <th id ="family">
+                @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family)
+            </th>
+            <th id="genus">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Taxa[0].Genus)
                 </a>
                 
             </th>
-            <th>
+            <th id="species">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
                 </a>
                 
             </th>
-            <th>
+            <th id="infra">
                 @Html.DisplayNameFor(model => model.Taxa[0].InfraspecificEpithet)
             </th>
-            <th>
+            <th id="rank">
                 @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
             </th>
-
-
-<!--
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].HybridGenus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].HybridSpecies)
-            </th>
-        
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].Authors)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].USDAsymbol)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Taxa[0].USDAsynonym)
-            </th> -->
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Taxa) {
         <tr>
-        
-            <td>
+            <td id="cat">
+                @Html.DisplayFor(modelItem => item.Genus.Family.Category.Description)
+            </td>
+            <td id="family">
+                @Html.DisplayFor(modelItem => item.Genus.FamilyID)
+            </td>
+            <td id="genus">
                 @Html.DisplayFor(modelItem => item.GenusID)
             </td>
-            <td>
+            <td id="species">
                 @Html.DisplayFor(modelItem => item.SpecificEpithet)
             </td>
-            <td>
+            <td id="infra">
                 @Html.DisplayFor(modelItem => item.InfraspecificEpithet)
             </td>
-            <td>
+            <td id="rank">
                 @Html.DisplayFor(modelItem => item.TaxonRank)
-            </td>
-            
-
-            <td>
-                @Html.DisplayFor(modelItem => item.HybridGenus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HybridSpecies)
             </td>
     
         </tr>
@@ -107,13 +93,15 @@
     var nextDisabled = !Model.Taxa.HasNextPage ? "disabled" : "";
 }
 
-<a asp-page="./Index"
+<a id="prevnex"
+    asp-page="./Index"
    asp-route-pageIndex="@(Model.Taxa.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     Previous
 </a>
-<a asp-page="./Index"
+<a id="prevnex"
+    asp-page="./Index"
    asp-route-pageIndex="@(Model.Taxa.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
