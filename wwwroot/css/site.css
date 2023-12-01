@@ -87,8 +87,22 @@ footer {
 }
 
 
+#home_head {
+  text-align: center;
+  background-color: var(--colormain);
+  opacity: 87%;
+  color: white;
 
+  margin-bottom: 5px;
+  transition: ease-in-out 0.5s;
+  cursor: pointer;
+}
 
+#home_head:hover {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+ 
 
 #home_loginbutton {
   position: absolute;
@@ -103,7 +117,6 @@ footer {
   text-align: center;
   font-size: 12px;
   font-family: Verdana, Geneva, Tahoma, sans-serif
-
 
 }
 

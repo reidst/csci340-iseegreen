@@ -60,12 +60,7 @@
 @foreach (var item in Model.Taxa) {
         <tr>
             <td id="family">
-                @if (item.Genus != null){
-                    @Html.DisplayFor(modelItem => item.Genus.FamilyID);
-                 }
-                 else {
-                    <p>None</p>
-                 }
+                @Html.DisplayFor(modelItem => item.Genus.FamilyID) 
             </td>
             <td id="genus">
                 @Html.DisplayFor(modelItem => item.GenusID)
