@@ -43,6 +43,8 @@ namespace csci340_iseegreen.Pages.Search
 
         [BindProperty(SupportsGet = true)]
         public string? FamilyString { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string? GenusString { get; set; }
 
         public SelectList? Categories { get; set; }
 
@@ -84,6 +86,10 @@ namespace csci340_iseegreen.Pages.Search
             if (!string.IsNullOrEmpty(FamilyString))
             {
                 taxaIQ = taxaIQ.Where(s => s.Genus.FamilyID.Contains(FamilyString));
+            }
+            if (!string.IsNullOrEmpty(GenusString))
+            {
+                taxaIQ = taxaIQ.Where(s => s.GenusID.Contains(GenusString));
             }
             if (!string.IsNullOrEmpty(CategoryFilter))
             {

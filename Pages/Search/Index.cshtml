@@ -12,11 +12,7 @@
 
 <form>
     <p>
-        <input type="text" placeholder="Species" asp-for="SearchString" />
-        
-        <input type="text" placeholder="Family" asp-for="FamilyString" />
-        
-    
+
         <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories">
             <option value="">Category</option>
             @foreach ((string cat, string desc) in Model.CategoryOptions)
@@ -24,6 +20,12 @@
                 <option value="@cat">@desc</option>
             }
         </select>
+        
+        <input type="text" placeholder="Family" asp-for="FamilyString" />
+
+        <input type="text" placeholder="Genus" asp-for="GenusString" />
+        
+        <input type="text" placeholder="Species" asp-for="SearchString" />
 
         <input type="submit" value="Apply Filters" />
     </p>
