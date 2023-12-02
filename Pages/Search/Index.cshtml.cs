@@ -57,10 +57,11 @@ namespace csci340_iseegreen.Pages.Search
         public string CurrentSort {get; set;}
 
 
+
         public async Task OnGetAsync(string sortOrder, string CurrentFilter, string SearchString, int? pageIndex)
         {
-            GenusSort = String.IsNullOrEmpty(sortOrder) ? "genus": "";
-            SpeciesSort = String.IsNullOrEmpty(sortOrder)? "species": "";
+            GenusSort = String.IsNullOrEmpty(sortOrder)? "genus": "genus_desc";
+            SpeciesSort = String.IsNullOrEmpty(sortOrder)? "species_desc": "";
             IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
             
 
@@ -92,16 +93,20 @@ namespace csci340_iseegreen.Pages.Search
             }
 
             switch (sortOrder) {
-                case "species":
-                    taxaIQ = taxaIQ.OrderBy(s => s.SpecificEpithet);
+                case "species_desc":
+                    taxaIQ = taxaIQ.OrderByDescending(s => s.SpecificEpithet);
                     break;
 
                 case "genus":
                     taxaIQ = taxaIQ.OrderBy(s => s.Genus);
                     break;
 
+                case "genus_desc":
+                    taxaIQ = taxaIQ.OrderByDescending(s => s.Genus);
+                    break;
+
                 default: 
-                    taxaIQ = taxaIQ.OrderBy(s => s.Genus);
+                    taxaIQ = taxaIQ.OrderBy(s => s.SpecificEpithet);
                     break;
             }
 
