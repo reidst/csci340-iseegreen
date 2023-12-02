@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace csci340_iseegreen.Models
 {
@@ -13,7 +14,7 @@ namespace csci340_iseegreen.Models
         public string? CategoryID { get; set; }
         [StringLength(255)]
         public string? TaxonomicOrderID { get; set; }
-
+        [ForeignKey("CategoryID")]
         public Categories? Category { get; set; }
         public TaxonomicOrders? TaxonomicOrder { get; set; }
     }

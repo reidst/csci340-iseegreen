@@ -10,6 +10,7 @@ using csci340_iseegreen.Data;
 using csci340_iseegreen.Models;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Configuration;
+using System.Drawing;
 
 namespace csci340_iseegreen.Pages.Search
 {
@@ -17,6 +18,8 @@ namespace csci340_iseegreen.Pages.Search
     {
         private readonly csci340_iseegreen.Data.ISeeGreenContext _context;
         private readonly IConfiguration Configuration;
+
+
         public IndexModel(csci340_iseegreen.Data.ISeeGreenContext context, IConfiguration configuration)
         {
             _context = context;
@@ -28,8 +31,9 @@ namespace csci340_iseegreen.Pages.Search
             }
         }
 
-        public PaginatedList<csci340_iseegreen.Models.Taxa> Taxa { get;set; } = default!;
 
+        public PaginatedList<csci340_iseegreen.Models.Taxa> Taxa { get;set; } = default!;
+        public List<string> Families {get; set;}
         // List of (CategoryID, FullCategoryName) entries for all categories
         // e.g., ("F", "Fern")
         public IList<(string, string)> CategoryOptions { get; set; }
@@ -39,6 +43,8 @@ namespace csci340_iseegreen.Pages.Search
 
         [BindProperty(SupportsGet = true)]
         public string? FamilyString { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string? GenusString { get; set; }
 
         public SelectList? Categories { get; set; }
 
@@ -55,8 +61,8 @@ namespace csci340_iseegreen.Pages.Search
             SpeciesSort = String.IsNullOrEmpty(sortOrder) ? "species": "";
             GenusSort = String.IsNullOrEmpty(sortOrder) ? "genus": "";
 
-            IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa select t; 
-
+            IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
+            
             switch (sortOrder) {
                 case "species":
                     taxaIQ = taxaIQ.OrderBy(s => s.SpecificEpithet);
@@ -81,6 +87,10 @@ namespace csci340_iseegreen.Pages.Search
             {
                 taxaIQ = taxaIQ.Where(s => s.Genus.FamilyID.Contains(FamilyString));
             }
+            if (!string.IsNullOrEmpty(GenusString))
+            {
+                taxaIQ = taxaIQ.Where(s => s.GenusID.Contains(GenusString));
+            }
             if (!string.IsNullOrEmpty(CategoryFilter))
             {
                 taxaIQ = taxaIQ.Where(s => s.Genus.Family.CategoryID.Contains(CategoryFilter));
@@ -89,6 +99,8 @@ namespace csci340_iseegreen.Pages.Search
             var pageSize = Configuration.GetValue("PageSize", 10);
             Taxa = await PaginatedList<csci340_iseegreen.Models.Taxa>.CreateAsync(
             taxaIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+            
+
         }
     }
 }
