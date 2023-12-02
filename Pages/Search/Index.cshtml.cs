@@ -54,31 +54,26 @@ namespace csci340_iseegreen.Pages.Search
         public string SpeciesSort {get; set;}
         public string GenusSort {get; set;}
         public string CurrentFilter {get; set;}
+        public string CurrentSort {get; set;}
 
 
-        public async Task OnGetAsync(string sortOrder, string SearchString, int? pageIndex)
+        public async Task OnGetAsync(string sortOrder, string CurrentFilter, string SearchString, int? pageIndex)
         {
-            SpeciesSort = String.IsNullOrEmpty(sortOrder) ? "species": "";
             GenusSort = String.IsNullOrEmpty(sortOrder) ? "genus": "";
-
+            SpeciesSort = String.IsNullOrEmpty(sortOrder)? "species": "";
             IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
             
-            switch (sortOrder) {
-                case "species":
-                    taxaIQ = taxaIQ.OrderBy(s => s.SpecificEpithet);
-                    break;
 
-                case "genus":
-                    taxaIQ = taxaIQ.OrderBy(s => s.Genus);
-                    break;
-
-                default: 
-                    taxaIQ = taxaIQ.OrderBy(s => s.Genus);
-                    break;
+            if (SearchString != null) {
+                pageIndex = 1;
+            }
+            else {
+                SearchString = CurrentFilter;
             }
 
-            var taxon = from m in _context.Taxa
-                        select m;
+            CurrentFilter = SearchString;
+
+
             if (!string.IsNullOrEmpty(SearchString))
             {
                 taxaIQ = taxaIQ.Where(s => s.SpecificEpithet.Contains(SearchString));
@@ -94,6 +89,20 @@ namespace csci340_iseegreen.Pages.Search
             if (!string.IsNullOrEmpty(CategoryFilter))
             {
                 taxaIQ = taxaIQ.Where(s => s.Genus.Family.CategoryID.Contains(CategoryFilter));
+            }
+
+            switch (sortOrder) {
+                case "species":
+                    taxaIQ = taxaIQ.OrderBy(s => s.SpecificEpithet);
+                    break;
+
+                case "genus":
+                    taxaIQ = taxaIQ.OrderBy(s => s.Genus);
+                    break;
+
+                default: 
+                    taxaIQ = taxaIQ.OrderBy(s => s.Genus);
+                    break;
             }
 
             var pageSize = Configuration.GetValue("PageSize", 10);

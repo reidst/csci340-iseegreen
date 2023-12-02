@@ -13,7 +13,7 @@
 <form>
     <p>
 
-        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories">
+        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories" asp-route-currentFilter="@Model.CurrentFilter">
             <option id="op" value="">Category</option>
             @foreach ((string cat, string desc) in Model.CategoryOptions)
             {
@@ -38,7 +38,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th id="check">
                  
             </th>
              <th id ="cat">
@@ -65,7 +65,7 @@
             <th id="rank">
                 @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
             </th>
-        
+
         </tr>
     </thead>
     <tbody>
@@ -106,6 +106,7 @@
 
 <a id="prevnex"
     asp-page="./Index"
+    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Taxa.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
@@ -113,6 +114,7 @@
 </a>
 <a id="prevnex"
     asp-page="./Index"
+    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Taxa.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @nextDisabled">
@@ -125,5 +127,9 @@
         height: 15px;
         width: 15px;
         vertical-align: middle;
+    }
+
+    #check {
+        width: 20px;
     }
 </style>
