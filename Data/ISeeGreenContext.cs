@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using csci340_iseegreen.Models;
 
 namespace csci340_iseegreen.Data
 {
@@ -35,5 +36,8 @@ namespace csci340_iseegreen.Data
         public DbSet<csci340_iseegreen.Models.Taxa> Taxa { get; set; } = default!;
         public DbSet<csci340_iseegreen.Models.Synonyms> Synonyms { get; set; } = default!;
         public DbSet<IdentityUser> ISeeGreenUsers { get; set; } = default!;
+        public DbSet<csci340_iseegreen.Models.Lists> Lists { get; set; } = default!;
+        public DbSet<csci340_iseegreen.Models.Locations> Locations { get; set; } = default!;
+        public DbSet<csci340_iseegreen.Models.ListItems> ListItems { get; set; } = default!;
     }
 }

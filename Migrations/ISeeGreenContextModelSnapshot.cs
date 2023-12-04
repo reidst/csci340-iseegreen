@@ -283,6 +283,86 @@ namespace csci340_iseegreen.Migrations
                     b.ToTable("Genera", (string)null);
                 });
 
+            modelBuilder.Entity("csci340_iseegreen.Models.ListItems", b =>
+                {
+                    b.Property<string>("KewID")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ListID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("LocationID")
+                        .HasMaxLength(255)
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("TimeDiscovered")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("KewID", "ListID");
+
+                    b.HasIndex("ListID");
+
+                    b.HasIndex("LocationID");
+
+                    b.ToTable("ListItems");
+                });
+
+            modelBuilder.Entity("csci340_iseegreen.Models.Lists", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerID")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerID");
+
+                    b.ToTable("Lists");
+                });
+
+            modelBuilder.Entity("csci340_iseegreen.Models.Locations", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerID")
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerID");
+
+                    b.ToTable("Locations");
+                });
+
             modelBuilder.Entity("csci340_iseegreen.Models.Synonyms", b =>
                 {
                     b.Property<string>("KewID")
@@ -495,6 +575,51 @@ namespace csci340_iseegreen.Migrations
                         .HasForeignKey("FamilyID");
 
                     b.Navigation("Family");
+                });
+
+            modelBuilder.Entity("csci340_iseegreen.Models.ListItems", b =>
+                {
+                    b.HasOne("csci340_iseegreen.Models.Taxa", "Plant")
+                        .WithMany()
+                        .HasForeignKey("KewID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("csci340_iseegreen.Models.Lists", "List")
+                        .WithMany()
+                        .HasForeignKey("ListID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("csci340_iseegreen.Models.Locations", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationID");
+
+                    b.Navigation("List");
+
+                    b.Navigation("Location");
+
+                    b.Navigation("Plant");
+                });
+
+            modelBuilder.Entity("csci340_iseegreen.Models.Lists", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("csci340_iseegreen.Models.Locations", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerID");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("csci340_iseegreen.Models.Synonyms", b =>
