@@ -53,26 +53,52 @@ namespace csci340_iseegreen.Pages.Search
 
         public string SpeciesSort {get; set;}
         public string GenusSort {get; set;}
-        public string CurrentFilter {get; set;}
+        public string CurrentSpecies {get; set;}
+        public string CurrentGenus {get; set;}
+        public string CurrentFamily {get; set;}
         public string CurrentSort {get; set;}
+        public string CurrentFilter {get;set;}
+        public string CurrentCat {get; set;}
 
 
 
-        public async Task OnGetAsync(string sortOrder, string CurrentFilter, string SearchString, int? pageIndex)
+        public async Task OnGetAsync(string sortOrder, string FamilyString, string GenusString, string SearchString, string? CategoryFilter, int? pageIndex)
         {
             GenusSort = String.IsNullOrEmpty(sortOrder)? "genus": "genus_desc";
             SpeciesSort = String.IsNullOrEmpty(sortOrder)? "species_desc": "";
+            
+            
+            if (CategoryFilter != null) {
+                CurrentCat = CategoryFilter;
+            }
+
+            CurrentSort = sortOrder;
             IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
             
 
             if (SearchString != null) {
-                pageIndex = 1;
+                CurrentSpecies = SearchString;
             }
             else {
-                SearchString = CurrentFilter;
+                SearchString = CurrentSpecies;
             }
 
-            CurrentFilter = SearchString;
+            if (GenusString != null) {
+                CurrentGenus = GenusString;
+    
+            }
+            else {
+                GenusString = CurrentGenus;
+            }
+
+            if (FamilyString != null) {
+                CurrentFamily = FamilyString;
+    
+            }
+            else {
+                FamilyString = CurrentFamily;
+            }
+            
 
 
             if (!string.IsNullOrEmpty(SearchString))

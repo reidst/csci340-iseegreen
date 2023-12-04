@@ -13,7 +13,7 @@
 <form>
     <p>
 
-        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories" asp-route-currentFilter="@Model.CurrentFilter">
+        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories" asp-route-CategoryFilter="@Model.CurrentCat">
             <option id="op" value="">Category</option>
             @foreach ((string cat, string desc) in Model.CategoryOptions)
             {
@@ -48,13 +48,17 @@
                 @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family)
             </th>
             <th id="genus">
-                <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-currentFilter="@Model.CurrentFilter">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-CategoryFilter="@Model.CurrentCat" asp-route-SearchString="@Model.CurrentSpecies"
+   asp-route-GenusString="@Model.CurrentGenus"
+   asp-route-FamilyString="@Model.CurrentFamily">
                     @Html.DisplayNameFor(model => model.Taxa[0].Genus)
                 </a>
                 
             </th>
             <th id="species">
-                <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-currentFilter="@Model.CurrentFilter">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-CategoryFilter="@Model.CurrentCat" asp-route-SearchString="@Model.CurrentSpecies"
+   asp-route-GenusString="@Model.CurrentGenus"
+   asp-route-FamilyString="@Model.CurrentFamily">
                     @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
                 </a>
                 
@@ -106,17 +110,25 @@
 
 <a id="prevnex"
     asp-page="./Index"
+    asp-route-CategoryFilter="@Model.CurrentCat"
     asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Taxa.PageIndex - 1)"
+   asp-route-SearchString="@Model.CurrentSpecies"
+   asp-route-GenusString="@Model.CurrentGenus"
+   asp-route-FamilyString="@Model.CurrentFamily"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     Previous
 </a>
 <a id="prevnex"
     asp-page="./Index"
+    asp-route-CategoryFilter="@Model.CurrentCat"
     asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Taxa.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
+    asp-route-GenusString="@Model.CurrentGenus"
+    asp-route-SearchString="@Model.CurrentSpecies"
+    asp-route-FamilyString="@Model.CurrentFamily"
    class="btn btn-primary @nextDisabled">
     Next
 </a>
