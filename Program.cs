@@ -1,12 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using csci340_iseegreen.Data;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ISeeGreenContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ISeeGreenContextSQLite") ?? throw new InvalidOperationException("Connection string 'ISeeGreenContext' not found.")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<ISeeGreenContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
