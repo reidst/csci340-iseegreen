@@ -1,0 +1,54 @@
+@page
+@model csci340_iseegreen.Pages_ListItems.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ListItems[0].TimeDiscovered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListItems[0].Plant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListItems[0].List)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListItems[0].Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ListItems) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeDiscovered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plant.KewID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.List.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.Id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

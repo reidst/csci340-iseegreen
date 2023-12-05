@@ -13,21 +13,24 @@
 <form>
     <p>
 
-        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories">
-            <option value="">Category</option>
+        <select class="custom_select" asp-for="CategoryFilter" asp-items="Model.Categories" asp-route-CategoryFilter="@Model.CurrentCat">
+            <option id="op" value="">Category</option>
             @foreach ((string cat, string desc) in Model.CategoryOptions)
             {
                 <option value="@cat">@desc</option>
             }
         </select>
         
-        <input type="text" placeholder="Family" asp-for="FamilyString" />
+        <input type="text" id="famsearch" placeholder="Family" asp-for="FamilyString" />
 
-        <input type="text" placeholder="Genus" asp-for="GenusString" />
+        <input type="text" id="genussearch" placeholder="Genus" asp-for="GenusString" />
         
-        <input type="text" placeholder="Species" asp-for="SearchString" />
+        <input type="text" id="speciesearch" placeholder="Species" asp-for="SearchString" />
+        
+        <input type="submit" value="Apply Filters"/>
 
-        <input type="submit" value="Apply Filters" />
+        <a href="./Search">Clear</a>
+
     </p>
 </form>
 
@@ -35,6 +38,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th id="check">
+                 
+            </th>
              <th id ="cat">
                 @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family.Category)
             </th>
@@ -42,13 +48,17 @@
                 @Html.DisplayNameFor(model => model.Taxa[0].Genus.Family)
             </th>
             <th id="genus">
-                <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-currentFilter="@Model.CurrentFilter">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.GenusSort" asp-route-CategoryFilter="@Model.CurrentCat" asp-route-SearchString="@Model.CurrentSpecies"
+   asp-route-GenusString="@Model.CurrentGenus"
+   asp-route-FamilyString="@Model.CurrentFamily">
                     @Html.DisplayNameFor(model => model.Taxa[0].Genus)
                 </a>
                 
             </th>
             <th id="species">
-                <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-currentFilter="@Model.CurrentFilter">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.SpeciesSort" asp-route-CategoryFilter="@Model.CurrentCat" asp-route-SearchString="@Model.CurrentSpecies"
+   asp-route-GenusString="@Model.CurrentGenus"
+   asp-route-FamilyString="@Model.CurrentFamily">
                     @Html.DisplayNameFor(model => model.Taxa[0].SpecificEpithet)
                 </a>
                 
@@ -59,11 +69,15 @@
             <th id="rank">
                 @Html.DisplayNameFor(model => model.Taxa[0].TaxonRank)
             </th>
+
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Taxa) {
         <tr>
+            <td id="check">
+                <input type="checkbox" id="plant1" name="plant1" value="Plant">
+            </td>
             <td id="cat">
                 @Html.DisplayFor(modelItem => item.Genus.Family.Category.Description)
             </td>
@@ -82,6 +96,7 @@
             <td id="rank">
                 @Html.DisplayFor(modelItem => item.TaxonRank)
             </td>
+            
     
         </tr>
 }
@@ -95,15 +110,38 @@
 
 <a id="prevnex"
     asp-page="./Index"
+    asp-route-CategoryFilter="@Model.CurrentCat"
+    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Taxa.PageIndex - 1)"
+   asp-route-SearchString="@Model.CurrentSpecies"
+   asp-route-GenusString="@Model.CurrentGenus"
+   asp-route-FamilyString="@Model.CurrentFamily"
    asp-route-currentFilter="@Model.CurrentFilter"
    class="btn btn-primary @prevDisabled">
     Previous
 </a>
 <a id="prevnex"
     asp-page="./Index"
+    asp-route-CategoryFilter="@Model.CurrentCat"
+    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.Taxa.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
+    asp-route-GenusString="@Model.CurrentGenus"
+    asp-route-SearchString="@Model.CurrentSpecies"
+    asp-route-FamilyString="@Model.CurrentFamily"
    class="btn btn-primary @nextDisabled">
     Next
 </a>
+
+<style>
+    #plant1 {
+        accent-color: rgb(188, 188, 188);
+        height: 15px;
+        width: 15px;
+        vertical-align: middle;
+    }
+
+    #check {
+        width: 20px;
+    }
+</style>

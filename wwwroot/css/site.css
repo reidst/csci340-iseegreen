@@ -116,7 +116,7 @@ footer {
   padding: 5px 15px;
   text-align: center;
   font-size: 12px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
@@ -319,7 +319,7 @@ footer {
 /* Search Page */
 
 a {
-  color: var(--colormain);
+  color: black;
   cursor: pointer;
 }
 
@@ -327,16 +327,38 @@ a:hover {
   color: var(--colortertiary);
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
 th, td {
   width: 20%;
+  border: 1px solid var(--colortertiary);
+  padding: 5px;
 }
+
 
 tr {
   cursor: pointer;
 }
 
+tr:nth-child(even) {
+  background-color: rgb(240, 240, 240);
+}
+
 tr:hover {
   background-color: #bdd0ac;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+thead {
+  background-color:#bdd0ac;
 }
 
 input[type=text] {
@@ -414,3 +436,4 @@ input[type=submit]:hover {
   width:100%;
   height: auto;
 }
+
