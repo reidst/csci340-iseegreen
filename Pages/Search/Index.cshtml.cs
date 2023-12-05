@@ -64,7 +64,7 @@ namespace csci340_iseegreen.Pages.Search
 
         public async Task OnGetAsync(string sortOrder, string FamilyString, string GenusString, string SearchString, string? CategoryFilter, int? pageIndex)
         {
-            GenusSort = String.IsNullOrEmpty(sortOrder)? "genus": "genus_desc";
+            GenusSort = (String.IsNullOrEmpty(sortOrder) || sortOrder.Equals("genus_desc"))? "genus": "genus_desc";
             SpeciesSort = String.IsNullOrEmpty(sortOrder)? "species_desc": "";
             
             
