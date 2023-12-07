@@ -5,10 +5,20 @@
     ViewData["Title"] = "Index";
 }
 
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <br> 
 <div id="header_box">
 <h1 id="search_heading">My Lists</h1>
 </div>
+
+@if (SignInManager.IsSignedIn(User))
+{
+        <p>Hello @UserManager.GetUserName(User)!</p>
+
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -16,6 +26,7 @@
 
 <div class="row">
     @foreach (var item in Model.Lists) {
+      if (item.OwnerID == UserManager.GetUserId(User)) {
         <div class="column">
             <div class="card">
                 <h2><b>@Html.DisplayFor(modelItem => item.Name)</b></h2>
@@ -28,8 +39,11 @@
                 
             </div>
         </div>
+      }
+        
     }
 </div>
+}
 
 <style>
     * {
