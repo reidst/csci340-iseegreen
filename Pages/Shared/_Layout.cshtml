@@ -18,22 +18,24 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav bg-#486034 flex-grow-1 justify-content-center">
-                        <li class="nav-item" id="homenav">
+                        <li class="nav-item" id="homenav1">
                             <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="homenav1">
                             <a class="nav-link text-light" asp-area="" asp-page="/About">About</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="homenav1">
                             <a class="nav-link text-light" asp-area="" asp-page="/Search/Index">Search</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="homenav1">
                             <a class="nav-link text-light" asp-area="" asp-page="/Lists/Index">My Lists</a>
                         </li>
+                        @* <button type=button id=home_loginbutton>Log In</button> *@
+                    <partial name="_LoginPartial" />
                     </ul>
+                    
                 </div>
-                @* <button type=button id=home_loginbutton>Log In</button> *@
-                <partial name="_LoginPartial" />
+                
             </div>
         </nav>
     </header>
