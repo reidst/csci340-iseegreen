@@ -76,7 +76,7 @@
 @foreach (var item in Model.Taxa) {
         <tr>
             <td id="check">
-                <input type="checkbox" id="plant1" name="plant1" value="Plant">
+                <a class="popup" id="plus" asp-area="" asp-page="./Details" asp-route-KewID="@item.KewID">&#x2795</a>
             </td>
             <td id="cat">
                 @Html.DisplayFor(modelItem => item.Genus.Family.Category.Description)
@@ -96,7 +96,7 @@
             <td id="rank">
                 @Html.DisplayFor(modelItem => item.TaxonRank)
             </td>
-            
+
     
         </tr>
 }
@@ -133,6 +133,8 @@
     Next
 </a>
 
+
+
 <style>
     #plant1 {
         accent-color: rgb(188, 188, 188);
@@ -144,4 +146,16 @@
     #check {
         width: 20px;
     }
+
+    #plus {
+        vertical-align: auto;
+        margin: auto;
+        text-decoration: none;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+   
 </style>

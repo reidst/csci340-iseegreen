@@ -1,0 +1,86 @@
+@page
+@model csci340_iseegreen.Pages_Search.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@foreach (var item in Model.Taxon) {
+
+
+<div>
+    <h4>Lists</h4>
+    <hr />
+    <dl class="row">
+        <dt>
+            @Html.DisplayNameFor(model => model.Taxon[0].KewID) : @Html.DisplayFor(modelItem => item.KewID)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Taxon[0].Authors) : @Html.DisplayFor(modelItem => item.Authors)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Taxon[0].USDAsymbol) : @Html.DisplayFor(modelItem => item.USDAsymbol)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Taxon[0].USDAsynonym) : @Html.DisplayFor(modelItem => item.USDAsynonym)
+        </dt>
+    </dl>
+    </div>
+
+}
+<table class="table">
+    <thead>
+        <tr>
+             <th id ="cat">
+                @Html.DisplayNameFor(model => model.Taxon[0].Genus.Family.Category)
+            </th>
+            <th id ="family">
+                @Html.DisplayNameFor(model => model.Taxon[0].Genus.Family)
+            </th>
+            <th id="genus">
+                    @Html.DisplayNameFor(model => model.Taxon[0].Genus)             
+            </th>
+            <th id="species">
+                    @Html.DisplayNameFor(model => model.Taxon[0].SpecificEpithet)
+            </th>
+            <th id="infra">
+                @Html.DisplayNameFor(model => model.Taxon[0].InfraspecificEpithet)
+            </th>
+            <th id="rank">
+                @Html.DisplayNameFor(model => model.Taxon[0].TaxonRank)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Taxon) {
+        <tr>
+            <td id="cat">
+                @Html.DisplayFor(modelItem => item.Genus.Family.Category.Description)
+            </td>
+            <td id="family">
+                @Html.DisplayFor(modelItem => item.Genus.FamilyID)
+            </td>
+            <td id="genus">
+                @Html.DisplayFor(modelItem => item.GenusID)
+            </td>
+            <td id="species">
+                @Html.DisplayFor(modelItem => item.SpecificEpithet)
+            </td>
+            <td id="infra">
+                @Html.DisplayFor(modelItem => item.InfraspecificEpithet)
+            </td>
+            <td id="rank">
+                @Html.DisplayFor(modelItem => item.TaxonRank)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="./Index">Back to Search</a>
+</div>

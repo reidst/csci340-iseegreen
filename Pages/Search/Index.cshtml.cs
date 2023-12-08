@@ -71,9 +71,9 @@ namespace csci340_iseegreen.Pages.Search
             if (CategoryFilter != null) {
                 CurrentCat = CategoryFilter;
             }
-
+IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
             CurrentSort = sortOrder;
-            IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
+            
             
 
             if (SearchString != null) {
