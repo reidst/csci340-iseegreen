@@ -10,31 +10,33 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<br> 
-<div id="header_box">
-<h1 id="search_heading">My Lists</h1>
-</div>
 
 @if (SignInManager.IsSignedIn(User))
 {
-        <p>Hello @UserManager.GetUserName(User)!</p>
+        var user = @UserManager.GetUserName(User);
 
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<br> 
+<div id="header_box">
+<h1 id="search_heading">@user's Lists</h1>
+</div>
+<br>
 
 <div class="row">
+    <div class="column">
+            <div class="card" onclick=link()>
+                <span class="rotate"><p id="plus">&#x2795</p></span>
+                <a asp-page="Create" id="createnew">Create New</a>
+            </div>
+        </div>
     @foreach (var item in Model.Lists) {
       if (item.OwnerID == UserManager.GetUserId(User)) {
         <div class="column">
-            <div class="card">
+            <div class="card" onclick=click1()>
+                <a id="tag3" asp-page="./Delete" asp-route-id="@item.Id">&#x2795</a>
                 <h2><b>@Html.DisplayFor(modelItem => item.Name)</b></h2>
                 <div class="cardtag">
-                    <a asp-page="/ListItems/Index" asp-route-itemid="@item.Id">Items</a>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <a id="tag1" asp-page="/ListItems/Index" asp-route-itemid="@item.Id">Items</a> 
+                    <a id="tag2" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
                 </div>
                 
             </div>
@@ -44,7 +46,16 @@
     }
 </div>
 }
+<script>
+  function link() {
+    document.getElementById("createnew").click();
+  }
 
+  function click1() {
+    document.getElementById("tag1").click();
+  }
+
+</script>
 <style>
     * {
   box-sizing: border-box;
@@ -55,6 +66,8 @@ body {
 }
 
 h2 {
+    vertical-align: auto;
+    margin: auto;
     font-size: 18px;
 }
 
@@ -106,5 +119,74 @@ p {
     margin-bottom: 20px;
   }
 }
+
+#createnew {
+  vertical-align: auto;
+  margin: auto;
+}
+
+#plus {
+  font-size: 64px;
+  vertical-align: auto;
+  margin: auto;
+}
+
+.cardtag{
+  margin-bottom: 5px;
+}
+
+#tag1 {
+  background-color: rgb(227, 227, 227);
+  border: 0.5px solid black;
+  color: black;
+  padding: 0.5em 1em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+#tag1:hover {
+  background-color: #a9bf96;
+}
+
+#tag1:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+#tag2 {
+  background-color: rgb(227, 227, 227);
+  border: 0.5px solid black;
+  color: black;
+  padding: 0.5em 1em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+#tag2:hover {
+  background-color: #a9bf96;
+}
+
+#tag2:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+#tag3 {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  text-decoration: none;
+  transform: rotate(45deg);
+  font-size: 20px;
+}
+
+
+
+
+
 </style>
 
