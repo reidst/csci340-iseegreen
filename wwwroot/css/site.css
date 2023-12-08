@@ -462,3 +462,7 @@ input[type=submit]:hover {
 .about_page_section {
   clear: both
 }
+
+.book_link {
+  color: #557639
+}
