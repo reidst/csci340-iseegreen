@@ -437,3 +437,22 @@ input[type=submit]:hover {
   height: auto;
 }
 
+.mission_text {
+  float: left
+}
+
+.mission_image {
+  float: right;
+  height: 100px;
+  width: auto
+}
+
+.about_text {
+  float: left
+}
+
+.about_image {
+  float: right;
+  height: 100px;
+  width: auto
+}
