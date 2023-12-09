@@ -6,7 +6,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - iseegreen
 on:
   push:
     branches:
-      - main
+      - deployment
   workflow_dispatch:
 
 jobs:
@@ -15,6 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: deployment
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
@@ -29,7 +31,7 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Install .NET EF Core
-        run: dotnet tool install -g dotnet-ef --version 7.0.14
+        run: dotnet tool install -g dotnet-ef --version 7.0.13
 
       - name: Generate database migration bundle
         run: dotnet ef migrations bundle --runtime linux-x64 -p csci340-iseegreen.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate
