@@ -81,6 +81,17 @@
     </tbody>
 </table>
 
+<select>
+    <option id="op" value="">Select List</option>
+    @foreach (var item in Model.SelectList) {
+    <option value="@item.Id">
+        @Html.DisplayFor(modelItem => item.Name)
+    </option>
+}
+</select>
+
+<button>Add</button>
+
 <div>
     <a asp-page="./Index">Back to Search</a>
 </div>

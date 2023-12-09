@@ -21,6 +21,7 @@ namespace csci340_iseegreen.Pages_Search
 
         public List<Taxa> Taxon {get; set;} = default!;
 
+        public List<Lists> SelectList {get; set;} = default!;
 
         public async Task<IActionResult> OnGetAsync(string KewID)
         {
@@ -35,6 +36,12 @@ namespace csci340_iseegreen.Pages_Search
             }
             else {
                 Taxon = taxon;
+            }
+
+            if (_context.Lists != null)
+            {
+                SelectList = await _context.Lists
+                .ToListAsync();
             }
             return Page();
         }
