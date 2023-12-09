@@ -437,3 +437,32 @@ input[type=submit]:hover {
   height: auto;
 }
 
+.mission_text {
+  float: left;
+  width: 75%
+}
+
+.mission_image {
+  float: right;
+  height: auto;
+  width: 15%
+}
+
+.about_text {
+  float: left;
+  width: 75%
+}
+
+.about_image {
+  float: right;
+  height: auto;
+  width: 15%
+}
+
+.about_page_section {
+  clear: both
+}
+
+.book_link {
+  color: #557639
+}
