@@ -23,6 +23,8 @@ namespace csci340_iseegreen.Pages_Search
 
         public List<Lists> SelectList {get; set;} = default!;
 
+        public string Identifier {get; set;} = default!;
+
         public async Task<IActionResult> OnGetAsync(string KewID)
         {
             IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
@@ -43,7 +45,25 @@ namespace csci340_iseegreen.Pages_Search
                 SelectList = await _context.Lists
                 .ToListAsync();
             }
+            Identifier = KewID;
+
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAddList(string KewID, int? list) {
+            if (list == null) {
+                return NotFound();
+            }
+
+            var item = new ListItems {
+                KewID = KewID,
+                ListID = list.Value,
+                TimeDiscovered = DateTime.Now
+            };
+
+            await _context.ListItems.AddAsync(item);
+
+            return RedirectToPage("/ListItems/Index", new { listid = list.ToString() });
         }
     }
 }

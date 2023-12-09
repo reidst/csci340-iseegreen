@@ -81,16 +81,18 @@
     </tbody>
 </table>
 
-<select>
-    <option id="op" value="">Select List</option>
-    @foreach (var item in Model.SelectList) {
-    <option value="@item.Id">
-        @Html.DisplayFor(modelItem => item.Name)
-    </option>
-}
-</select>
-
-<button>Add</button>
+<form asp-page-handler="AddList" method="post">
+    <select name="list">
+        <option id="op" value="">Select List</option>
+        @foreach (var item in Model.SelectList) {
+        <option value="@item.Id">
+            @Html.DisplayFor(modelItem => item.Name)
+        </option>
+    }
+    </select>
+    <input type="hidden" value="@Model.Identifier" name="KewID" />
+    <input type="submit" value="Add" />
+</form>
 
 <div>
     <a asp-page="./Index">Back to Search</a>
