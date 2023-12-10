@@ -21,16 +21,21 @@ namespace csci340_iseegreen.Data
         public static void Initialize(ISeeGreenContext context)
         {
             string seedDbPath = $"{Directory.GetCurrentDirectory()}/wwwroot/seed.db";
-            Console.WriteLine($"seedDbPath='{seedDbPath}'");
+            Console.WriteLine($"[DebugLog] seedDbPath='{seedDbPath}'");
             using SqliteConnection connection = new($"Data Source={seedDbPath}");
+            Console.WriteLine("[DebugLog] connecting to SQLite seed database...");
             connection.Open();
-            
+            Console.WriteLine("[DebugLog] Connection opened.");
+
             if (!context.Categories.Any())
             {
+                Console.WriteLine("[DebugLog] Table 'Categories' is empty, adding seed data...");
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM Categories;";
                 List<Categories> categories = new();
+                Console.WriteLine("[DebugLog] Executing SELECT command...");
                 using SqliteDataReader reader = command.ExecuteReader();
+                Console.WriteLine("[DebugLog] Reading data...");
                 while (reader.Read())
                 {
                     categories.Add(new Categories
@@ -41,16 +46,22 @@ namespace csci340_iseegreen.Data
                         APG4sort = DbCast<long>(reader["APG4sort"]),
                     });
                 }
+                Console.WriteLine($"[DebugLog] Adding {categories.Count} new Categories to the context...");
                 context.Categories.AddRange(categories.ToArray());
+                Console.WriteLine("[DebugLog] Saving changes...");
                 context.SaveChanges();
+                Console.WriteLine("[DebugLog] Changes saved.");
             }
 
             if (!context.TaxonomicOrders.Any())
             {
+                Console.WriteLine("[DebugLog] Table 'TaxonomicOrders' is empty, adding seed data...");
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM TaxonomicOrders;";
                 List<TaxonomicOrders> taxonomicOrders = new();
+                Console.WriteLine("[DebugLog] Executing SELECT command...");
                 using SqliteDataReader reader = command.ExecuteReader();
+                Console.WriteLine("[DebugLog] Reading data...");
                 while (reader.Read())
                 {
                     taxonomicOrders.Add(new TaxonomicOrders
@@ -70,16 +81,22 @@ namespace csci340_iseegreen.Data
                         SortLevel6 = (int)DbCast<long>(reader["SortLevel6"]),
                     });
                 }
+                Console.WriteLine($"[DebugLog] Adding {taxonomicOrders.Count} new TaxonomicOrders to the context...");
                 context.TaxonomicOrders.AddRange(taxonomicOrders.ToArray());
+                Console.WriteLine("[DebugLog] Saving changes...");
                 context.SaveChanges();
+                Console.WriteLine("[DebugLog] Changes saved.");
             }
 
             if (!context.Families.Any())
             {
+                Console.WriteLine("[DebugLog] Table 'Families' is empty, adding seed data...");
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM Families;";
                 List<Families> families = new();
+                Console.WriteLine("[DebugLog] Executing SELECT command...");
                 using SqliteDataReader reader = command.ExecuteReader();
+                Console.WriteLine("[DebugLog] Reading data...");
                 while (reader.Read())
                 {
                     families.Add(new Families
@@ -90,16 +107,22 @@ namespace csci340_iseegreen.Data
                         TaxonomicOrderID = DbCast<string?>(reader["TaxonomicOrderID"]),
                     });
                 }
+                Console.WriteLine($"[DebugLog] Adding {families.Count} new Families to the context...");
                 context.Families.AddRange(families.ToArray());
+                Console.WriteLine("[DebugLog] Saving changes...");
                 context.SaveChanges();
+                Console.WriteLine("[DebugLog] Changes saved.");
             }
 
             if (!context.Genera.Any())
             {
+                Console.WriteLine("[DebugLog] Table 'Genera' is empty, adding seed data...");
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM Genera;";
                 List<Genera> genera = new();
+                Console.WriteLine("[DebugLog] Executing SELECT command...");
                 using SqliteDataReader reader = command.ExecuteReader();
+                Console.WriteLine("[DebugLog] Reading data...");
                 while (reader.Read())
                 {
                     genera.Add(new Genera
@@ -109,16 +132,22 @@ namespace csci340_iseegreen.Data
                         FamilyID = DbCast<string?>(reader["FamilyID"]),
                     });
                 }
+                Console.WriteLine($"[DebugLog] Adding {genera.Count} new Genera to the context...");
                 context.Genera.AddRange(genera.ToArray());
+                Console.WriteLine("[DebugLog] Saving changes...");
                 context.SaveChanges();
+                Console.WriteLine("[DebugLog] Changes saved.");
             }
 
             if (!context.Taxa.Any())
             {
+                Console.WriteLine("[DebugLog] Table 'Taxa' is empty, adding seed data...");
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM Taxa;";
                 List<Taxa> taxa = new();
+                Console.WriteLine("[DebugLog] Executing SELECT command...");
                 using SqliteDataReader reader = command.ExecuteReader();
+                Console.WriteLine("[DebugLog] Reading data...");
                 while (reader.Read())
                 {
                     taxa.Add(new Taxa
@@ -135,16 +164,22 @@ namespace csci340_iseegreen.Data
                         USDAsynonym = DbCast<string?>(reader["USDAsynonym"]),
                     });
                 }
+                Console.WriteLine($"[DebugLog] Adding {taxa.Count} new Taxa to the context...");
                 context.Taxa.AddRange(taxa.ToArray());
+                Console.WriteLine("[DebugLog] Saving changes...");
                 context.SaveChanges();
+                Console.WriteLine("[DebugLog] Changes saved.");
             }
 
             if (!context.Synonyms.Any())
             {
+                Console.WriteLine("[DebugLog] Table 'Synonyms' is empty, adding seed data...");
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM Synonyms;";
                 List<Synonyms> synonyms = new();
+                Console.WriteLine("[DebugLog] Executing SELECT command...");
                 using SqliteDataReader reader = command.ExecuteReader();
+                Console.WriteLine("[DebugLog] Reading data...");
                 while (reader.Read())
                 {
                     synonyms.Add(new Synonyms
@@ -158,8 +193,11 @@ namespace csci340_iseegreen.Data
                         Authors = DbCast<string?>(reader["Authors"]),
                     });
                 }
+                Console.WriteLine($"[DebugLog] Adding {synonyms.Count} new Synonyms to the context...");
                 context.Synonyms.AddRange(synonyms.ToArray());
+                Console.WriteLine("[DebugLog] Saving changes...");
                 context.SaveChanges();
+                Console.WriteLine("[DebugLog] Changes saved.");
             }
         }
     }
