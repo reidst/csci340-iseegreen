@@ -1,12 +1,12 @@
 using csci340_iseegreen.Models;
-using System.Data.Odbc;
+using Microsoft.Data.Sqlite;
 
 namespace csci340_iseegreen.Data
 {
     public static class DbInitializer
     {
         // https://stackoverflow.com/a/870771
-        private static T? ConvertFromDBVal<T>(object obj)
+        private static T? DbCast<T>(object obj)
         {
             if (obj == null || obj == DBNull.Value)
             {
@@ -18,32 +18,25 @@ namespace csci340_iseegreen.Data
             }
         }
 
-        public static void Initialize(ISeeGreenContext context, bool isDevelopment)
+        public static void Initialize(ISeeGreenContext context)
         {
-            OdbcCommand command;
-            OdbcDataReader reader;
-            
-            // help taken from https://iamsorush.com/posts/connect-access-db-net-core/
-            string dbFilePath = isDevelopment
-                ? $"{Directory.GetCurrentDirectory()}\\wwwroot\\ISG.accdb"
-                : "/site/wwwroot/wwwroot/ISG.accdb";
-            string accdbConnectionString = @"Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=" + dbFilePath;
-            using OdbcConnection connection = new(accdbConnectionString);
+            using SqliteConnection connection = new("Data Source=wwwroot/seed.db");
             connection.Open();
-
+            
             if (!context.Categories.Any())
             {
-                command = new("SELECT * FROM Categories;", connection);
-                reader = command.ExecuteReader();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM Categories;";
                 List<Categories> categories = new();
+                using SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     categories.Add(new Categories
                     {
-                        Category = ConvertFromDBVal<string>(reader["Category"]),
-                        Description = ConvertFromDBVal<string?>(reader["Description"]),
-                        Sort = ConvertFromDBVal<short>(reader["Sort"]),
-                        APG4sort = ConvertFromDBVal<int>(reader["APG4sort"]),
+                        Category = DbCast<string>(reader["Category"]),
+                        Description = DbCast<string?>(reader["Description"]),
+                        Sort = (int)DbCast<long>(reader["Sort"]),
+                        APG4sort = DbCast<long>(reader["APG4sort"]),
                     });
                 }
                 context.Categories.AddRange(categories.ToArray());
@@ -52,26 +45,27 @@ namespace csci340_iseegreen.Data
 
             if (!context.TaxonomicOrders.Any())
             {
-                command = new("SELECT * FROM TaxonomicOrders;", connection);
-                reader = command.ExecuteReader();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM TaxonomicOrders;";
                 List<TaxonomicOrders> taxonomicOrders = new();
+                using SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     taxonomicOrders.Add(new TaxonomicOrders
                     {
-                        TaxonomicOrder = ConvertFromDBVal<string>(reader["TaxonomicOrder"]),
-                        SortLevel1Heading = ConvertFromDBVal<string?>(reader["SortLevel1Heading"]),
-                        SortLevel1 = ConvertFromDBVal<short>(reader["SortLevel1"]),
-                        SortLevel2Heading = ConvertFromDBVal<string?>(reader["SortLevel2Heading"]),
-                        SortLevel2 = ConvertFromDBVal<short>(reader["SortLevel2"]),
-                        SortLevel3Heading = ConvertFromDBVal<string?>(reader["SortLevel3Heading"]),
-                        SortLevel3 = ConvertFromDBVal<short>(reader["SortLevel3"]),
-                        SortLevel4Heading = ConvertFromDBVal<string?>(reader["SortLevel4Heading"]),
-                        SortLevel4 = ConvertFromDBVal<short>(reader["SortLevel4"]),
-                        SortLevel5Heading = ConvertFromDBVal<string?>(reader["SortLevel5Heading"]),
-                        SortLevel5 = ConvertFromDBVal<short>(reader["SortLevel5"]),
-                        SortLevel6Heading = ConvertFromDBVal<string?>(reader["SortLevel6Heading"]),
-                        SortLevel6 = ConvertFromDBVal<short>(reader["SortLevel6"]),
+                        TaxonomicOrder = DbCast<string>(reader["TaxonomicOrder"]),
+                        SortLevel1Heading = DbCast<string?>(reader["SortLevel1Heading"]),
+                        SortLevel1 = (int)DbCast<long>(reader["SortLevel1"]),
+                        SortLevel2Heading = DbCast<string?>(reader["SortLevel2Heading"]),
+                        SortLevel2 = (int)DbCast<long>(reader["SortLevel2"]),
+                        SortLevel3Heading = DbCast<string?>(reader["SortLevel3Heading"]),
+                        SortLevel3 = (int)DbCast<long>(reader["SortLevel3"]),
+                        SortLevel4Heading = DbCast<string?>(reader["SortLevel4Heading"]),
+                        SortLevel4 = (int)DbCast<long>(reader["SortLevel4"]),
+                        SortLevel5Heading = DbCast<string?>(reader["SortLevel5Heading"]),
+                        SortLevel5 = (int)DbCast<long>(reader["SortLevel5"]),
+                        SortLevel6Heading = DbCast<string?>(reader["SortLevel6Heading"]),
+                        SortLevel6 = (int)DbCast<long>(reader["SortLevel6"]),
                     });
                 }
                 context.TaxonomicOrders.AddRange(taxonomicOrders.ToArray());
@@ -80,17 +74,18 @@ namespace csci340_iseegreen.Data
 
             if (!context.Families.Any())
             {
-                command = new("SELECT * FROM Families;", connection);
-                reader = command.ExecuteReader();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM Families;";
                 List<Families> families = new();
+                using SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     families.Add(new Families
                     {
-                        Family = ConvertFromDBVal<string>(reader["Family"]),
-                        TranslateTo = ConvertFromDBVal<string?>(reader["TranslateTo"]),
-                        CategoryID = ConvertFromDBVal<string?>(reader["Category"]),
-                        TaxonomicOrderID = ConvertFromDBVal<string?>(reader["TaxonomicOrder"]),
+                        Family = DbCast<string>(reader["Family"]),
+                        TranslateTo = DbCast<string?>(reader["TranslateTo"]),
+                        CategoryID = DbCast<string?>(reader["CategoryID"]),
+                        TaxonomicOrderID = DbCast<string?>(reader["TaxonomicOrderID"]),
                     });
                 }
                 context.Families.AddRange(families.ToArray());
@@ -99,16 +94,17 @@ namespace csci340_iseegreen.Data
 
             if (!context.Genera.Any())
             {
-                command = new("SELECT * FROM Genera;", connection);
-                reader = command.ExecuteReader();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM Genera;";
                 List<Genera> genera = new();
+                using SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     genera.Add(new Genera
                     {
-                        KewID = ConvertFromDBVal<string>(reader["kew_id"]),
-                        GenusID = ConvertFromDBVal<string>(reader["genus"]),
-                        FamilyID = ConvertFromDBVal<string?>(reader["family"]),
+                        KewID = DbCast<string>(reader["KewID"]),
+                        GenusID = DbCast<string>(reader["GenusID"]),
+                        FamilyID = DbCast<string?>(reader["FamilyID"]),
                     });
                 }
                 context.Genera.AddRange(genera.ToArray());
@@ -117,23 +113,24 @@ namespace csci340_iseegreen.Data
 
             if (!context.Taxa.Any())
             {
-                command = new("SELECT * FROM Taxa;", connection);
-                reader = command.ExecuteReader();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM Taxa;";
                 List<Taxa> taxa = new();
+                using SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     taxa.Add(new Taxa
                     {
-                        KewID = ConvertFromDBVal<string>(reader["kew_id"]),
-                        GenusID = ConvertFromDBVal<string?>(reader["genus"]),
-                        SpecificEpithet = ConvertFromDBVal<string?>(reader["SpecificEpithet"]),
-                        InfraspecificEpithet = ConvertFromDBVal<string?>(reader["InfraspecificEpithet"]),
-                        TaxonRank = ConvertFromDBVal<string?>(reader["TaxonRank"]),
-                        HybridGenus = ConvertFromDBVal<string?>(reader["HybridGenus"]),
-                        HybridSpecies = ConvertFromDBVal<string?>(reader["HybridSpecies"]),
-                        Authors = ConvertFromDBVal<string?>(reader["Authors"]),
-                        USDAsymbol = ConvertFromDBVal<string?>(reader["USDAsymbol"]),
-                        USDAsynonym = ConvertFromDBVal<string?>(reader["USDAsynonym"]),
+                        KewID = DbCast<string>(reader["KewID"]),
+                        GenusID = DbCast<string?>(reader["GenusID"]),
+                        SpecificEpithet = DbCast<string?>(reader["SpecificEpithet"]),
+                        InfraspecificEpithet = DbCast<string?>(reader["InfraspecificEpithet"]),
+                        TaxonRank = DbCast<string?>(reader["TaxonRank"]),
+                        HybridGenus = DbCast<string?>(reader["HybridGenus"]),
+                        HybridSpecies = DbCast<string?>(reader["HybridSpecies"]),
+                        Authors = DbCast<string?>(reader["Authors"]),
+                        USDAsymbol = DbCast<string?>(reader["USDAsymbol"]),
+                        USDAsynonym = DbCast<string?>(reader["USDAsynonym"]),
                     });
                 }
                 context.Taxa.AddRange(taxa.ToArray());
@@ -142,20 +139,21 @@ namespace csci340_iseegreen.Data
 
             if (!context.Synonyms.Any())
             {
-                command = new("SELECT * FROM Synonyms;", connection);
-                reader = command.ExecuteReader();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM Synonyms;";
                 List<Synonyms> synonyms = new();
+                using SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     synonyms.Add(new Synonyms
                     {
-                        KewID = ConvertFromDBVal<string>(reader["kew_id"]),
-                        TaxaID = ConvertFromDBVal<string?>(reader["accepted_kew_id"]),
-                        Genus = ConvertFromDBVal<string?>(reader["genus"]),
-                        Species = ConvertFromDBVal<string?>(reader["species"]),
-                        InfraspecificEpithet = ConvertFromDBVal<string?>(reader["InfraspecificEpithet"]),
-                        TaxonRank = ConvertFromDBVal<string?>(reader["TaxonRank"]),
-                        Authors = ConvertFromDBVal<string?>(reader["Authors"]),
+                        KewID = DbCast<string>(reader["KewID"]),
+                        TaxaID = DbCast<string?>(reader["TaxaID"]),
+                        Genus = DbCast<string?>(reader["Genus"]),
+                        Species = DbCast<string?>(reader["Species"]),
+                        InfraspecificEpithet = DbCast<string?>(reader["InfraspecificEpithet"]),
+                        TaxonRank = DbCast<string?>(reader["TaxonRank"]),
+                        Authors = DbCast<string?>(reader["Authors"]),
                     });
                 }
                 context.Synonyms.AddRange(synonyms.ToArray());

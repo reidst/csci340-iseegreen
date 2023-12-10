@@ -1,1 +1,1 @@
-*.accdb filter=lfs diff=lfs merge=lfs -text
+wwwroot/seed.db filter=lfs diff=lfs merge=lfs -text
