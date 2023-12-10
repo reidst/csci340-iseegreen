@@ -61,7 +61,8 @@ namespace csci340_iseegreen.Pages_Search
                 TimeDiscovered = DateTime.Now
             };
 
-            await _context.ListItems.AddAsync(item);
+            await _context.AddAsync(item);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("/ListItems/Index", new { listid = list.ToString() });
         }
