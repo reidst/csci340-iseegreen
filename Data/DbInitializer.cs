@@ -20,7 +20,7 @@ namespace csci340_iseegreen.Data
 
         public static void Initialize(ISeeGreenContext context)
         {
-            using SqliteConnection connection = new("Data Source=wwwroot/seed.db");
+            using SqliteConnection connection = new($"Data Source={Directory.GetCurrentDirectory()}/wwwroot/seed.db");
             connection.Open();
             
             if (!context.Categories.Any())
