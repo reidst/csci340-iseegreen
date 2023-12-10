@@ -35,7 +35,7 @@ using (var scope = app.Services.CreateScope())
 
     var context = services.GetRequiredService<ISeeGreenContext>();
     context.Database.EnsureCreated();
-    DbInitializer.Initialize(context);
+    DbInitializer.Initialize(context, app.Environment.IsDevelopment());
 }
 
 app.UseHttpsRedirection();
