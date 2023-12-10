@@ -67,8 +67,8 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<ISeeGreenContext>();
     Console.WriteLine("[DebugLog] Ensuring database has been created...");
     context.Database.EnsureCreated();
-    Console.WriteLine("[DebugLog] Starting DbInitializer.Initialize(ISeeGreenContext)...");
-    DbInitializer.Initialize(context);
+    // Console.WriteLine("[DebugLog] Starting DbInitializer.Initialize(ISeeGreenContext)...");
+    // DbInitializer.Initialize(context);
 }
 Console.WriteLine("[DebugLog] Services have been initialized.");
 
