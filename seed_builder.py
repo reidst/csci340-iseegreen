@@ -120,17 +120,19 @@ def translate_column_names(table_name, old_column_names):
 
 def parse_args():
     argparser = argparse.ArgumentParser(
-        description="a Microsoft-Access-to-SQLite database transfer script for the iSeeGreen database"
+        description="Generates formatted seed data from a Microsoft Access database for the iSeeGreen web app"
     )
     argparser.add_argument(
         "access_file",
         type=Path,
-        help="the .accdb file from which to read data"
+        help="the .accdb (Access 2007-2016 format) input file"
     )
     argparser.add_argument(
         "sqlite_file",
         type=Path,
-        help="the .db (sqlite) file to which to write data"
+        nargs="?",
+        default="./wwwroot/seed.db",
+        help="(optional) the .db (SQLite3 format) output file; defaults to './wwwroot/seed.db'"
     )
     return argparser.parse_args()
 
@@ -152,8 +154,8 @@ def main():
     if not exists(args.access_file):
         print(f"error: an Access file named '{args.access_file}' does not exist.")
         exit(1)
-    if not exists(args.sqlite_file):
-        print(f"warning: a SQLite file named '{args.sqlite_file}' does not exist; it will be created.")
+    if exists(args.sqlite_file):
+        print(f"warning: a SQLite file named '{args.sqlite_file}' already exists; some of its data will be overwritten.")
     print("loading Access file...")
     accdb = AccessParser(args.access_file)
     print("connecting to SQLite database...")
