@@ -8,7 +8,7 @@ namespace csci340_iseegreen.Models
     {
         [Key]
         public required int Id { get; set; }
-        [StringLength(255)]
+        [StringLength(450)]
         public string? OwnerID { get; set; }
         [StringLength(255)]
         public required string Name { get; set; }
