@@ -398,4 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 ISG.db
-ISG.db-*
+ISG.db-shm
+ISG.db-wal

@@ -64,7 +64,7 @@ namespace csci340_iseegreen.Pages_Search
             await _context.AddAsync(item);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/ListItems/Index", new { listid = list.ToString() });
+            return RedirectToPage("/ListItems/Index", new { itemid = list.ToString() });
         }
     }
 }

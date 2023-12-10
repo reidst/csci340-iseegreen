@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>@Model.ListItems[0].List.Name</h1>
 
 <p>
     <a asp-page="/Search/Index">Search for more!</a>
@@ -17,10 +17,7 @@
                 @Html.DisplayNameFor(model => model.ListItems[0].TimeDiscovered)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ListItems[0].Plant)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ListItems[0].List)
+                @Html.DisplayNameFor(model => model.ListItems[0].Plant.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ListItems[0].Location)
@@ -35,10 +32,7 @@
                 @Html.DisplayFor(modelItem => item.TimeDiscovered)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Plant.KewID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.List.Id)
+                @Html.DisplayFor(modelItem => item.Plant.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location.Id)
