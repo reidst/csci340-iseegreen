@@ -1,13 +1,31 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using csci340_iseegreen.Data;
 using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
+var isProduction = (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "") == "Production";
+
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ISeeGreenContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("ISeeGreenContextSQLite") ?? throw new InvalidOperationException("Connection string 'ISeeGreenContextSQLite' not found.")));
+
+if (isProduction)
+{
+    builder.Services.AddDbContext<ISeeGreenContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string 'AZURE_SQL_CONNECTIONSTRING' not found.")));
+
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
+        options.InstanceName = "SampleInstance";
+    });
+}
+else
+{
+    builder.Services.AddDbContext<ISeeGreenContext>(options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("ISeeGreenContextSQLite") ?? throw new InvalidOperationException("Connection string 'ISeeGreenContextSQLite' not found.")));
+}
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ISeeGreenContext>();
