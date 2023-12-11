@@ -48,7 +48,8 @@ namespace csci340_iseegreen.Pages_ListItems
             {
                 return NotFound();
             }
-            var listitems = await _context.ListItems.FindAsync(id);
+
+            var listitems = await _context.ListItems.FirstOrDefaultAsync(m => m.KewID == id);
 
             if (listitems != null)
             {
@@ -57,7 +58,7 @@ namespace csci340_iseegreen.Pages_ListItems
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new{itemid = ListItems.ListID});
         }
     }
 }

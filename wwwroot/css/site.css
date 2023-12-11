@@ -133,8 +133,8 @@ footer {
 
 #home_rect {
   position: absolute;
-  left: 100px;
-  top: 100px;
+  left: 10%;
+  top: 15%;
   width: 30%;
   min-width: 300px;
   height: 30%;
@@ -271,6 +271,7 @@ footer {
 
 #col2{
   width: 30%;
+  text-align: center;
 }
 #gallery3 {
   width:100%;
@@ -435,6 +436,11 @@ input[type=submit]:hover {
   background-color: #bdd0ac;
   width:100%;
   height: auto;
+}
+
+.error {
+  margin: 1em 0;
+  font-size: large;
 }
 
 .mission_text {

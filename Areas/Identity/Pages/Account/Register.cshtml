@@ -4,12 +4,16 @@
     ViewData["Title"] = "Register";
 }
 
+<br>
+<div id="header_box">
 <h1>@ViewData["Title"]</h1>
+</div>
+<br>
 
 <div class="row">
-    <div class="col-md-4">
+    <h2>Create a new account.</h2>
+    <div class="col-md-4" id="cont">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
@@ -35,6 +39,8 @@
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
+
+    <!--
     <div class="col-md-6 col-md-offset-2">
         <section>
             <h3>Use another service to register.</h3>
@@ -65,8 +71,38 @@
             }
         </section>
     </div>
+    -->
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<style>
+    input {
+        border-color: darkgreen;
+        outline: none;
+    }
+
+    #registerSubmit {
+        background-color: #557639;
+        outline: none;
+        border-color: black;
+    }
+
+    h1{
+        padding: 5px;
+        margin: auto;
+        text-align: center;
+    }
+
+    h2{
+        margin: auto;
+        text-align: center;
+    }
+
+    #cont {
+        margin: auto;
+        justify-content: center;
+    }
+</style>

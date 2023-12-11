@@ -20,93 +20,100 @@
 <br>
 
 <div class="containerhome">
-<div class="row">
+    <div class="row">
 
-    <script>
-window.onload = function getRandomImage() {
-    var randomImage = new Array();
+        <script>
+            window.onload = function getRandomImage() {
+                var randomImage = new Array();
 
-    // can add as whatever images as we want
-    randomImage[0] = "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGxhbnQlMjB3aGl0ZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
-    randomImage[1] = "https://images.unsplash.com/photo-1536762131871-17373957273e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    randomImage[2] = "https://images.unsplash.com/photo-1431263154979-0982327fccbb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    randomImage[3] = "https://images.unsplash.com/photo-1516613835066-91cb1a42dda5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    randomImage[4] = "https://images.unsplash.com/photo-1562504979-5aee5dc1cc2c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    randomImage[5] = "https://images.unsplash.com/photo-1606922604118-c1aff542a1a9?q=80&w=2844&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                // can add as whatever images as we want
+                randomImage[0] = "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGxhbnQlMjB3aGl0ZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+                randomImage[1] = "https://images.unsplash.com/photo-1536762131871-17373957273e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                randomImage[2] = "https://images.unsplash.com/photo-1431263154979-0982327fccbb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                randomImage[3] = "https://images.unsplash.com/photo-1516613835066-91cb1a42dda5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                randomImage[4] = "https://images.unsplash.com/photo-1562504979-5aee5dc1cc2c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                randomImage[5] = "https://images.unsplash.com/photo-1606922604118-c1aff542a1a9?q=80&w=2844&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
-    var number = Math.floor(Math.random()*randomImage.length)
-    console.log();
+                var number = Math.floor(Math.random() * randomImage.length)
+                console.log();
 
-    document.getElementById("home_img").src = randomImage[number];
+                document.getElementById("home_img").src = randomImage[number];
 
-    randomImage.splice(number, 1);
-    var number2 = Math.floor(Math.random()*randomImage.length);
-    document.getElementById("gallery1").src = randomImage[number2];
+                randomImage.splice(number, 1);
+                var number2 = Math.floor(Math.random() * randomImage.length);
+                document.getElementById("gallery1").src = randomImage[number2];
 
-    randomImage.splice(number2, 1);
-    var number3 = Math.floor(Math.random()*randomImage.length);
-    document.getElementById("gallery2").src = randomImage[number3];
+                randomImage.splice(number2, 1);
+                var number3 = Math.floor(Math.random() * randomImage.length);
+                document.getElementById("gallery2").src = randomImage[number3];
 
-    randomImage.splice(number3, 1);
-    var number4 = Math.floor(Math.random()*randomImage.length);
-    document.getElementById("gallery3").src = randomImage[number4];
+                randomImage.splice(number3, 1);
+                var number4 = Math.floor(Math.random() * randomImage.length);
+                document.getElementById("gallery3").src = randomImage[number4];
 
-    
-    var img1 = document.getElementById("gallery1")
-    img1.onclick = swapImages1
 
-    var img2 = document.getElementById("gallery2")
-    img2.onclick = swapImages2
+                var img1 = document.getElementById("gallery1")
+                img1.onclick = swapImages1
 
-    var img3 = document.getElementById("gallery3")
-    img3.onclick = swapImages3
-    }
+                var img2 = document.getElementById("gallery2")
+                img2.onclick = swapImages2
 
-function swapImages1(){
-var image1 = document.getElementById("gallery1")
-var image2 = document.getElementById("home_img")
-var src = image1.src;
-image1.src = image2.src;
-image2.src = src;
-}
+                var img3 = document.getElementById("gallery3")
+                img3.onclick = swapImages3
+            }
 
-function swapImages2(){
-var image1 = document.getElementById("gallery2")
-var image2 = document.getElementById("home_img")
-var src = image1.src;
-image1.src = image2.src;
-image2.src = src;
-}
+            function swapImages1() {
+                var image1 = document.getElementById("gallery1")
+                var image2 = document.getElementById("home_img")
+                var src = image1.src;
+                image1.src = image2.src;
+                image2.src = src;
+            }
 
-function swapImages3(){
-var image1 = document.getElementById("gallery3")
-var image2 = document.getElementById("home_img")
-var src = image1.src;
-image1.src = image2.src;
-image2.src = src;
-}
+            function swapImages2() {
+                var image1 = document.getElementById("gallery2")
+                var image2 = document.getElementById("home_img")
+                var src = image1.src;
+                image1.src = image2.src;
+                image2.src = src;
+            }
 
-</script>
-    <img id="home_img" src="">
+            function swapImages3() {
+                var image1 = document.getElementById("gallery3")
+                var image2 = document.getElementById("home_img")
+                var src = image1.src;
+                image1.src = image2.src;
+                image2.src = src;
+            }
 
-<div class="col-sm">
+        </script>
+        <img id="home_img" src="">
 
-    <div class=rectangle id=home_rect>
-        <div class=col>
-            <p id=home_bigtext>Get Started</p>
-            <button type="button" id=home_searchbutton onclick="location.href='/Search/Index';" >Search by Name</button>
+        <div class="col-sm">
+
+            <div class="rectangle" id="home_rect">
+                <div class="col">
+                    <p id=home_bigtext>Get Started</p>
+                    <button type="button" id=home_searchbutton onclick="location.href='/Search/Index';">Search by Name</button>
+                </div>
+            </div>
+            
+            <br>
+
         </div>
     </div>
-    <br>
-    
-</div>
-</div>
 
-<div class="container1"> 
-<div class="row">
-    <div class="col" id="col1"><img id="gallery1"src="https://images.unsplash.com/photo-1536762131871-17373957273e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy"></div>
-    <div class="col" id="col2"><img id="gallery2" src="https://images.unsplash.com/photo-1431263154979-0982327fccbb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy"></div>
-    <div class="col" id="col3"><img id="gallery3" src="https://images.unsplash.com/photo-1516613835066-91cb1a42dda5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy"></div>
+    <div class="container1">
+        <div class="row">
+            <div class="col" id="col1"><img id="gallery1"
+                    src="https://images.unsplash.com/photo-1536762131871-17373957273e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    loading="lazy"></div>
+            <div class="col" id="col2"><img id="gallery2"
+                    src="https://images.unsplash.com/photo-1431263154979-0982327fccbb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    loading="lazy"></div>
+            <div class="col" id="col3"><img id="gallery3"
+                    src="https://images.unsplash.com/photo-1516613835066-91cb1a42dda5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    loading="lazy"></div>
 
-</div>
-</div>
+        </div>
+    </div>
