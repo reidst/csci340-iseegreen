@@ -24,7 +24,7 @@
                 <input asp-for="Lists.Name" class="form-control" />
                 <span asp-validation-for="Lists.Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="own">
                 <label asp-for="Lists.OwnerID" class="control-label"></label>
                 <input asp-for="Lists.OwnerID" value="@UserManager.GetUserId(User)" readonly />
             </div>
@@ -34,7 +34,7 @@
         </form>
     </div>
 </div>
-
+<br>
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
@@ -43,3 +43,8 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+<style>
+    #own{
+        display:none;
+    }
+</style>
