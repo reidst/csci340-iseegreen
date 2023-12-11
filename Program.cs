@@ -68,10 +68,7 @@ using (var scope = app.Services.CreateScope())
     Console.WriteLine("[DebugLog][Program] Ensuring database has been created...");
     context.Database.EnsureCreated();
 }
-Console.WriteLine("[DebugLog][Program] Services have been initialized.");
-
-Console.WriteLine("[DebugLog][Program] Starting asynchronous DbInitializer.Initialize(ISeeGreenContext)...");
-Task _seedTask = DbInitializer.InitializeAsync(app);
+Console.WriteLine("[DebugLog][Program] Services have been initialized, continuing WebApplication initialization...");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -82,5 +79,13 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-Console.WriteLine("[DebugLog][Program] Running WebApplication...");
-app.Run();
+Console.WriteLine("[DebugLog][Program] Synchronous initialization completed, starting WebApplication.Run task...");
+Task appRun = Task.Run(() => app.Run());
+
+Console.WriteLine("[DebugLog][Program] Starting DbInitializer.Initialize task...");
+Task seedTask = Task.Run(() => DbInitializer.InitializeAsync(app));
+
+Console.WriteLine("[DebugLog][Program] Waiting for both DbInitializer.Initialize and WebApplication.Run to complete...");
+Task.WaitAll(appRun, seedTask);
+
+Console.WriteLine("[DebugLog][Program] All tasks finished, end of program.");
