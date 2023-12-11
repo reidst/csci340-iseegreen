@@ -5,11 +5,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>@Model.ListItems[0].List.Name</h1>
+@if (Model.ListItems.Count > 0) {
 
-<p>
-    <a asp-page="/Search/Index">Search for more!</a>
-</p>
+<br>
+<div id="header_box">
+<h1 id="search_heading"> @Model.ListItems[0].List.Name</h1>
+</div>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -46,3 +48,28 @@
 }
     </tbody>
 </table>
+<p>
+    <a asp-page="/Search/Index">Search for more!</a>
+</p>
+ <a asp-page="/Lists/Index">Return to My Lists!</a>
+ }
+ else{
+    <br>
+    <div id="header_box">
+    <h1 id="search_heading">List is Empty!</h1>
+    </div>
+    <br>
+
+    <p>
+    <a asp-page="/Search/Index">Search for Plants!</a>
+    </p>
+
+    <a asp-page="/Lists/Index">Return to My Lists!</a>
+ }
+
+ <style>
+    #header_box {
+        margin: auto;
+        text-align: center;
+    }
+ </style>
