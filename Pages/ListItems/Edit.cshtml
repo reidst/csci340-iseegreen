@@ -5,17 +5,19 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<br>
+<div id="header_box">
+<h1 id="search_heading">Edit</h1>
+</div>
+<br>
 
-<h4>ListItems</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ListItems.KewID" />
             <input type="hidden" asp-for="ListItems.ListID" />
-            <div class="form-group">
+            <div class="form-group" id="hide">
                 <label asp-for="ListItems.LocationID" class="control-label"></label>
                 <select asp-for="ListItems.LocationID" class="form-control" asp-items="ViewBag.LocationID"></select>
                 <span asp-validation-for="ListItems.LocationID" class="text-danger"></span>
@@ -39,3 +41,9 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    #hide {
+        display:none;
+    }
+</style>

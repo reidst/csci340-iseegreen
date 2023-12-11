@@ -10,12 +10,13 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<h1>Create</h1>
-
-<h4>Lists</h4>
-<hr />
+<br> 
+<div id="header_box">
+<h1 id="search_heading">Create List</h1>
+</div>
+<hr>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" id="cont">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -23,7 +24,7 @@
                 <input asp-for="Lists.Name" class="form-control" />
                 <span asp-validation-for="Lists.Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="own">
                 <label asp-for="Lists.OwnerID" class="control-label"></label>
                 <input asp-for="Lists.OwnerID" value="@UserManager.GetUserId(User)" readonly />
             </div>
@@ -33,7 +34,7 @@
         </form>
     </div>
 </div>
-
+<br>
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
@@ -41,3 +42,9 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    #own{
+        display:none;
+    }
+</style>

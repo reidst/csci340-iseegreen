@@ -5,11 +5,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>@Model.ListItems[0].List.Name</h1>
+@if (Model.ListItems.Count > 0) {
 
-<p>
-    <a asp-page="/Search/Index">Search for more!</a>
-</p>
+<br>
+<div id="header_box">
+<h1 id="search_heading"> @Model.ListItems[0].List.Name</h1>
+</div>
+<br>
 <table class="table">
     <thead>
         <tr>
@@ -18,9 +20,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ListItems[0].Plant.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ListItems[0].Location)
             </th>
             <th></th>
         </tr>
@@ -35,14 +34,36 @@
                 @Html.DisplayFor(modelItem => item.Plant.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location.Id)
-            </td>
-            <td>
                 <a asp-page="/ListItems/Edit" asp-route-id="@item.Plant.KewID">Edit</a> |
-                <a asp-page="/Taxa/Details" asp-route-id="@item.Plant.KewID">Details</a> |
+                <a asp-page="/ListItems/Details" asp-route-id="@item.Plant.KewID">Details</a> |
                 <a asp-page="/ListItems/Delete" asp-route-id="@item.Plant.KewID">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<p>
+    <a asp-page="/Search/Index">Search for more!</a>
+</p>
+ <a asp-page="/Lists/Index">Return to My Lists!</a>
+ }
+ else{
+    <br>
+    <div id="header_box">
+    <h1 id="search_heading">List is Empty!</h1>
+    </div>
+    <br>
+
+    <p>
+    <a asp-page="/Search/Index">Search for Plants!</a>
+    </p>
+
+    <a asp-page="/Lists/Index">Return to My Lists!</a>
+ }
+
+ <style>
+    #header_box {
+        margin: auto;
+        text-align: center;
+    }
+ </style>
