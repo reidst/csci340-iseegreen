@@ -438,6 +438,11 @@ input[type=submit]:hover {
   height: auto;
 }
 
+.error {
+  margin: 1em 0;
+  font-size: large;
+}
+
 .mission_text {
   float: left;
   width: 75%

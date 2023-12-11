@@ -21,15 +21,25 @@ namespace csci340_iseegreen.Pages_ListItems
 
         public IList<ListItems> ListItems { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? itemid)
         {
             if (_context.ListItems != null)
             {
-                ListItems = await _context.ListItems
-                .Include(l => l.List)
+                var listQ = from l in _context.ListItems select l;
+
+                if (itemid != null) {
+                    listQ = listQ.Where(l => l.ListID == itemid);
+                }
+
+                listQ = listQ.Include(l => l.List)
                 .Include(l => l.Location)
-                .Include(l => l.Plant).ToListAsync();
+                .Include(l => l.Plant);
+            
+                var list = await listQ.ToListAsync();
+                
+                ListItems = list;
             }
+
         }
     }
 }

@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+ISG.db
+ISG.db-shm
+ISG.db-wal

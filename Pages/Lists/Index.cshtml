@@ -23,7 +23,7 @@
 
 <div class="row">
     <div class="column">
-            <div class="card" onclick=link()>
+            <div class="card">
                 <span class="rotate"><p id="plus">&#x2795</p></span>
                 <a asp-page="Create" id="createnew">Create New</a>
             </div>
@@ -31,7 +31,7 @@
     @foreach (var item in Model.Lists) {
       if (item.OwnerID == UserManager.GetUserId(User)) {
         <div class="column">
-            <div class="card" onclick=click1()>
+            <div class="card">
                 <a id="tag3" asp-page="./Delete" asp-route-id="@item.Id">&#x2795</a>
                 <h2><b>@Html.DisplayFor(modelItem => item.Name)</b></h2>
                 <div class="cardtag">
