@@ -28,7 +28,7 @@ namespace csci340_iseegreen.Pages_ListItems
                 return NotFound();
             }
 
-            var listitems = await _context.ListItems.FirstOrDefaultAsync(m => m.KewID == id);
+            var listitems = await _context.ListItems.Include(l => l.Plant).Include(v => v.List).Include(g => g.Plant!.Genus).Include(f => f.Plant!.Genus!.Family).Include(c => c.Plant!.Genus!.Family!.Category).FirstOrDefaultAsync(m => m.KewID == id);
             if (listitems == null)
             {
                 return NotFound();
