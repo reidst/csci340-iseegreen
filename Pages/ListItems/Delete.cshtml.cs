@@ -29,7 +29,7 @@ namespace csci340_iseegreen.Pages_ListItems
                 return NotFound();
             }
 
-            var listitems = await _context.ListItems.FirstOrDefaultAsync(m => m.KewID == id);
+            var listitems = await _context.ListItems.Include(l => l.Plant).Include(v => v.List).FirstOrDefaultAsync(m => m.KewID == id);
 
             if (listitems == null)
             {
@@ -49,7 +49,7 @@ namespace csci340_iseegreen.Pages_ListItems
                 return NotFound();
             }
 
-            var listitems = await _context.ListItems.FirstOrDefaultAsync(m => m.KewID == id);
+            var listitems = await _context.ListItems.Include(t => t.Plant).FirstOrDefaultAsync(m => m.KewID == id);
 
             if (listitems != null)
             {

@@ -5,11 +5,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<br>
+<div id="header_box">
+<h1 id="search_heading">Details</h1>
+</div>
+<br>
 
 <div>
-    <h4>ListItems</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ListItems.TimeDiscovered)
@@ -18,26 +20,60 @@
             @Html.DisplayFor(model => model.ListItems.TimeDiscovered)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ListItems.Plant)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ListItems.Plant.KewID)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ListItems.List)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ListItems.List.Id)
+            @Html.DisplayFor(model => model.ListItems.List.Name)
         </dd>
+        <hr>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ListItems.Plant.Genus.Family.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ListItems.Plant.Genus.Family.Category.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ListItems.Plant.Genus.Family)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ListItems.Plant.Genus.FamilyID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ListItems.Plant.Genus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ListItems.Plant.GenusID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ListItems.Plant.SpecificEpithet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ListItems.Plant.SpecificEpithet)
+        </dd>
+        @if (Model.ListItems.Plant.InfraspecificEpithet != null) {
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ListItems.Plant.InfraspecificEpithet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ListItems.Plant.InfraspecificEpithet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ListItems.Plant.TaxonRank)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ListItems.Plant.TaxonRank)
+        </dd>
+        }
+        
+        <!--
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ListItems.Location)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ListItems.Location.Id)
-        </dd>
+        </dd> -->
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-page="./Index" asp-route-itemid="@Model.ListItems.ListID">Back to List</a>
 </div>

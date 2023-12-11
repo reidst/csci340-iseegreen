@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ namespace csci340_iseegreen.Models
         [StringLength(255)]
         public int? LocationID { get; set; }
         [DataType(DataType.Date)]
+        [DisplayName("Date Added")]
         public DateTime TimeDiscovered { get; set; }
         [ForeignKey("KewID")]
         public Taxa? Plant { get; set; }
