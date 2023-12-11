@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using csci340_iseegreen.Data;
 using csci340_iseegreen.Models;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace csci340_iseegreen.Pages_Search
 {
@@ -24,6 +25,8 @@ namespace csci340_iseegreen.Pages_Search
         public List<Lists> SelectList {get; set;} = default!;
 
         public string Identifier {get; set;} = default!;
+
+        public string Error {get; set;} = default!;
 
         public async Task<IActionResult> OnGetAsync(string KewID)
         {
@@ -52,10 +55,62 @@ namespace csci340_iseegreen.Pages_Search
 
         public async Task<IActionResult> OnPostAddList(string KewID, int? list) {
             if (list == null) {
-                return NotFound();
+                Error = "You have to select a list.";
+                IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
+
+                taxaIQ = taxaIQ.Where(s => s.KewID.Equals(KewID));
+
+                var taxon = await taxaIQ.ToListAsync();
+
+                if (taxon == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Taxon = taxon;
+                }
+
+                if (_context.Lists != null)
+                {
+                    SelectList = await _context.Lists
+                    .ToListAsync();
+                }
+                Identifier = KewID;
+                return Page();
             }
 
-            var item = new ListItems {
+            ListItems item;
+
+            item = await _context.ListItems.SingleOrDefaultAsync(l => l.KewID == KewID && l.ListID == list.Value);
+
+            if (item != null) {
+                Error = "This plant is already in that list.";
+                IQueryable<csci340_iseegreen.Models.Taxa> taxaIQ = from t in _context.Taxa.Include(g => g.Genus).Include(f => f.Genus!.Family).Include(c => c.Genus!.Family!.Category) select t;
+
+                taxaIQ = taxaIQ.Where(s => s.KewID.Equals(KewID));
+
+                var taxon = await taxaIQ.ToListAsync();
+
+                if (taxon == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Taxon = taxon;
+                }
+
+                if (_context.Lists != null)
+                {
+                    SelectList = await _context.Lists
+                    .ToListAsync();
+                }
+                Identifier = KewID;
+                return Page();
+            }
+
+            item = new ListItems {
                 KewID = KewID,
                 ListID = list.Value,
                 TimeDiscovered = DateTime.Now

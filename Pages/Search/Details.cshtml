@@ -3,9 +3,16 @@
 
 @{
     ViewData["Title"] = "Details";
+    string error = Model.Error;
 }
 
 <h1>Details</h1>
+
+@if (error != null) {
+    <div class="error text-danger">
+        @error
+    </div>
+}
 
 @foreach (var item in Model.Taxon) {
 
