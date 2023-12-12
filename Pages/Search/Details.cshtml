@@ -6,6 +6,14 @@
     string error = Model.Error;
 }
 
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+
 <h1>Details</h1>
 
 @if (error != null) {
@@ -88,18 +96,25 @@
     </tbody>
 </table>
 
+@if (SignInManager.IsSignedIn(User))
+{
 <form asp-page-handler="AddList" method="post">
     <select name="list">
         <option id="op" value="">Select List</option>
         @foreach (var item in Model.SelectList) {
-        <option value="@item.Id">
-            @Html.DisplayFor(modelItem => item.Name)
-        </option>
+            var user = @UserManager.GetUserName(User);
+            if (item.OwnerID == UserManager.GetUserId(User)) {
+                <option value="@item.Id">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </option>
+            }
+    
     }
     </select>
     <input type="hidden" value="@Model.Identifier" name="KewID" />
     <input type="submit" value="Add" />
 </form>
+}
 
 <div>
     <a asp-page="./Index">Back to Search</a>
